@@ -1,0 +1,23 @@
+# Python virtual environment
+venv/
+.venv/
+
+# Python cache and build files
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Game outputs (recorded matches, logs, scores)
+www/
+*.replay
+
+# macOS
+.DS_Store
+
+# Editors
+.idea/
+.vscode/
+
+# Claude Code
+.claude/
+CLAUDE.md
