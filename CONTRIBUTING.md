@@ -14,6 +14,8 @@ Follow `README.md`. Notes:
 - **`my_team.py` in the repo root.** The tournament loads exactly this file, so it must stay there and
   keep `create_team(...)`.
 - Do not edit anything in `pacman-contest/`; that is the course's engine (a git submodule).
+- Need a package (e.g. numpy)? Add it to a `requirements.txt` in the repo root, pinned to a version that
+  installs on Python 3.8 on Linux (the tournament runs Ubuntu), and install it in your venv.
 - Prefer keeping the agent in `my_team.py`. A helper module needs the `sys.path` import from
   `pacman-contest/src/contest/CONTEST.md` and a name no other team would use (all teams run in one process).
 
@@ -41,7 +43,8 @@ Layouts are in `pacman-contest/src/contest/layouts/`. `--help` lists every optio
   what we already have.
 
 ## Branches and pull requests
-- `main` is the working agent. Nobody pushes to `main` directly.
+- `main` is our submission: the tournament plays whatever is on `main`, so it must always work.
+  Nobody pushes to `main` directly.
 - Each of us works on our own branch: `aljaz`, `David`. Update it from `main` before starting something new
   (`git pull origin main`).
 - A change reaches `main` only through a pull request into `main`. The other one reviews and merges.
