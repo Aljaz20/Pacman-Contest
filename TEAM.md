@@ -1,19 +1,14 @@
 # Team Information
 
-**Course:** _[fill your course code and name]_
+**Course:** Autonomous Systems - EMAI 2026-27 (UPF)
 
-**Semester:** Semester 2, 2020
+**Semester:** Semester 1, 2026/2027
 
-**Instructor:** _[name of your instructor]_
+**Instructor:** Javier Segovia Aguas
 
-**Team name:** _[replace this with team name in plan text]_
+**Team name:** PacLab
 
 **Team members:**
 
-* Student 1's Student number - Full Name - Student email - Student Github id
-* Student 2's Student number - Full Name - Student email - Student Github id
-* Student 3's Student number - Full Name - Student email - Student Github id
-
-Replace the lines above with the correct details of members. Delete or add lines as needed.
-
-Student numbers should just be the **numbers**.
+* U283350 - Aljaž Sovič - aljaz.sovic01@estudiant.upf.edu - Aljaz20
+* _[student number]_ - David Wünsch - _[student email]_ - davidwuensch
