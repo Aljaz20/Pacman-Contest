@@ -1,0 +1,10 @@
+{
+  "id": "template",
+  "author": "Your name",
+  "description": "Course baseline wrapper; copy this folder and implement your own team",
+  "approach": "Reflex baseline",
+  "components": ["offensive reflex", "defensive reflex"],
+  "entry": "my_team.py",
+  "options": {},
+  "enabled": false
+}

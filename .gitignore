@@ -21,3 +21,10 @@ www/
 # Claude Code
 .claude/
 CLAUDE.md
+
+# Local Codex instructions and skills
+/AGENTS.md
+/.agents/
+
+# Local tournament snapshots, checkpoints and detailed diagnostics
+/local-runs/
