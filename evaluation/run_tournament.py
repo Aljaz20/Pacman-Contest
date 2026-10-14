@@ -97,6 +97,7 @@ def prepare(run_id, config, workers):
                 raise ValueError('Engine source symlinks are not supported')
             shutil.copy2(str(p), str(frozen / p.name))
         copy_tree(original / 'layouts', frozen / 'layouts')
+        shutil.copy2(str(ROOT / 'evaluation/game_worker.py'), str(local / 'engine/worker.py'))
         teams = {}
         for tid in config['teams']:
             t = dict(available[tid])
@@ -119,7 +120,7 @@ def prepare(run_id, config, workers):
             dep = version('frozendict')
         except Exception:
             dep = 'unavailable'
-        manifest = dict(schema_version=1, run_id=run_id, created_at=now(), config=config,
+        manifest = dict(schema_version=1, seed_policy='post-layout-reset', run_id=run_id, created_at=now(), config=config,
                         teams=teams, schedule=schedule(config['teams'], config['layouts'], config['repeats'], config['seed']),
                         workers=workers, tool_hash=tree_hash(ROOT / 'evaluation'), engine_hash=tree_hash(local / 'engine'), engine_commit=git('-C', str(ROOT / 'pacman-contest'), 'rev-parse', 'HEAD'),
                         repo_commit=git('rev-parse', 'HEAD'), repo_dirty=bool(git('status', '--porcelain')),
@@ -143,7 +144,10 @@ def play(job, manifest, local, workers, session_id):
     score_path = work / 'www' / 'contest_game' / 'scores' / ('match_{}.json'.format(job['match_id']))
     if score_path.exists():
         score_path.unlink()  # an interrupted attempt must not supply a stale score
-    cmd = [sys.executable, '-B', str(local / 'engine' / 'contest' / 'capture.py'),
+    launcher = local / 'engine' / 'worker.py'
+    if not launcher.exists():
+        launcher = local / 'engine' / 'contest' / 'capture.py'  # preserve frozen legacy run semantics
+    cmd = [sys.executable, '-B', str(launcher),
            '-q', '-c', '--delay-step', '0', '-l',
            job['layout'] if job['layout'].startswith('RANDOM') else str(local / 'engine/contest/layouts' / job['layout']),
            '-i', str(manifest['config']['moves']),

@@ -47,6 +47,13 @@ def discover_teams(root):
                          approach='Reflex', entry='baseline_team.py',
                          folder='pacman-contest/src/contest', options={}),
     }
+    for name in ('team_name_1', 'team_name_2', 'team_template'):
+        tid = 'course_' + name
+        folder = 'pacman-contest/src/contest/agents/' + name
+        if (root / folder / 'my_team.py').exists():
+            teams[tid] = dict(id=tid, author='Course staff', description='Provided sample (baseline-equivalent)',
+                              approach='Course reflex reference', entry='my_team.py', folder=folder,
+                              options={}, category='reference', equivalent_to='baseline')
     for p in sorted((root / 'teams').glob('*/team.json')):
         t = read_json(p)
         if not isinstance(t, dict):

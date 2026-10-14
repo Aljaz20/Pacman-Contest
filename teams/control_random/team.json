@@ -1,0 +1,10 @@
+{
+  "id": "control_random",
+  "author": "PacLab",
+  "description": "Uniform random legal actions",
+  "approach": "Basic control opponent",
+  "category": "control",
+  "entry": "my_team.py",
+  "options": {},
+  "enabled": true
+}

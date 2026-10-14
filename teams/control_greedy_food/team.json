@@ -1,0 +1,10 @@
+{
+  "id": "control_greedy_food",
+  "author": "PacLab",
+  "description": "Nearest food, no threat awareness or coordination",
+  "approach": "Basic control opponent",
+  "category": "control",
+  "entry": "my_team.py",
+  "options": {},
+  "enabled": true
+}

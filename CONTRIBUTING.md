@@ -34,7 +34,7 @@ python capture.py --replay=www/contest_default/replays/match_0.replay
 Layouts are in `pacman-contest/src/contest/layouts/`. `--help` lists every option.
 
 ## Before opening a PR
-- Play on several layouts **and both colours** (red moves first) with `-c`. Without `-c` no time limit
+- Play on several layouts **and both colours** (the starting colour is randomly chosen) with `-c`. Without `-c` no time limit
   is enforced at all, so a slow agent looks fine locally and forfeits in the tournament.
 - No time warnings. Limits: 1 s per move (3 warnings = forfeit), 3 s for any single move = forfeit,
   15 s for `register_initial_state`. Leave headroom; the tournament machine may be slower than ours.
@@ -80,7 +80,7 @@ do not run the module files directly. These tools work on macOS and Linux (POSIX
 
 1. Copy `teams/template/` to a unique directory, for example `teams/david_mcts/` or `teams/aljaz_astar/`.
 2. Edit `team.json`: choose a unique ID, fill in author, description and approach, describe components,
-   and set `enabled` to `true`. The IDs `submission` and `baseline` are reserved. The disabled template
+   and set `enabled` to `true`. All built-in IDs shown by discovery are reserved, including `submission`, `baseline` and `course_*`. The disabled template
    wraps the course baseline; it is runnable scaffolding, not a new strategy.
 3. Implement `my_team.py`. Expose `create_team(first_index, second_index, is_red, ...)`, returning exactly
    two compatible agents. Defaults must run without extra options. Keep all helper modules and required
@@ -131,7 +131,9 @@ The supplied league roster initially contains only submission and baseline; add 
 
 The runner schedules every unordered pair on every layout and repetition, with both colour assignments
 using the same game seed. Each layout/repetition uses a common seed across opponents. `RANDOM7` fixes
-map generation independently of the game seed. The match count is:
+map generation independently of the game seed. The frozen worker reapplies the game seed after layout
+creation, because the course random-map generator otherwise overwrites global RNG state. New manifests
+record `seed_policy: post-layout-reset`; older runs retain their original frozen launcher semantics. The match count is:
 `teams * (teams - 1) / 2 * layouts * 2 * repeats`.
 Layouts and repeats form schedule blocks; partial runs still need coverage checks before ranking.
 
@@ -196,3 +198,25 @@ venv/bin/python -B -m unittest discover -s tests -v
 The integration test uses a temporary checkout, six shortened real games, two concurrent workers, a
 terminal-group soft stop, snapshot-preserving resume and both report formats. It is infrastructure
 validation, not evidence that any strategy is stronger.
+
+## Reference and control opponents
+
+The runner includes `baseline`, plus `course_team_name_1`, `course_team_name_2` and
+`course_team_template` from the engine's provided examples. Their executable strategy logic matches
+the supplied baseline; they are reference aliases, not three independent algorithm families.
+The `control_*` folders supply random legal actions, nearest-food greed, two offensive reflex agents
+and two defensive reflex agents. They provide different diagnostic behaviour; weakness is not assumed
+for every map or matchup. Do not treat repeated baseline-equivalent references as independent evidence.
+
+`evaluation/configs/portfolio.json` includes the complete candidate roster, inference variants, course
+references and basic controls. Use `--dry-run` to inspect its scope before launching a comparison.
+Reliability checks against baseline are separate from selecting a tournament winner:
+
+```bash
+venv/bin/python -m evaluation.validate_candidates aljaz_astar aljaz_minimax --prefix check-new --jobs 2
+venv/bin/python -m evaluation.validate_candidates aljaz_uct --prefix timing-new --jobs 1 --layouts jumboCapture
+```
+
+The validation command returns failure for missing matches, crashes, forfeits or timing events. A prefix
+identifies frozen candidate versions; after changing code/assets/config, choose a new prefix rather than
+resuming an old validation and attributing its results to current code.
