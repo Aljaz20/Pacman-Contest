@@ -1,0 +1,10 @@
+{
+  "id": "control_double_defense",
+  "author": "PacLab",
+  "description": "Two provided defensive reflex agents",
+  "approach": "Basic control opponent",
+  "category": "control",
+  "entry": "my_team.py",
+  "options": {},
+  "enabled": true
+}

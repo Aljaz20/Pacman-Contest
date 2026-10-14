@@ -1,0 +1,102 @@
+{
+  "config": {
+    "game_timeout": 1800,
+    "layouts": [
+      "defaultCapture",
+      "RANDOM7"
+    ],
+    "moves": 1200,
+    "record": false,
+    "repeats": 1,
+    "schema_version": 1,
+    "seed": 1,
+    "teams": [
+      "submission",
+      "baseline"
+    ]
+  },
+  "cpu_count": 15,
+  "created_at": "2026-10-13T23:25:34.079887+00:00",
+  "dependency_versions": {
+    "frozendict": "2.3.4"
+  },
+  "engine_commit": "54cd83cb1f1119630bb675d4b5008b3ce6405951",
+  "engine_hash": "998ba1bb31dc21fe30481e71ace1c2e96ff8b1b7fc9bcb508a92795cdc8a21ce",
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "python": "3.8.20 (default, Oct  2 2024, 16:12:59) \n[Clang 18.1.8 ]",
+  "repo_commit": "d9ca4953eedcf62933879982a721f4d75d0f3f23",
+  "repo_dirty": true,
+  "run_id": "validation-smoke",
+  "schedule": [
+    {
+      "blue": "baseline",
+      "layout": "defaultCapture",
+      "match_id": 0,
+      "pair_id": 0,
+      "red": "submission",
+      "repeat": 0,
+      "seed": 1
+    },
+    {
+      "blue": "submission",
+      "layout": "defaultCapture",
+      "match_id": 1,
+      "pair_id": 0,
+      "red": "baseline",
+      "repeat": 0,
+      "seed": 1
+    },
+    {
+      "blue": "baseline",
+      "layout": "RANDOM7",
+      "match_id": 2,
+      "pair_id": 1,
+      "red": "submission",
+      "repeat": 0,
+      "seed": 2
+    },
+    {
+      "blue": "submission",
+      "layout": "RANDOM7",
+      "match_id": 3,
+      "pair_id": 1,
+      "red": "baseline",
+      "repeat": 0,
+      "seed": 2
+    }
+  ],
+  "schema_version": 1,
+  "sessions": [
+    {
+      "ended_at": "2026-10-13T23:25:34.793392+00:00",
+      "id": 0,
+      "soft_stopped": false,
+      "started_at": "2026-10-13T23:25:34.145593+00:00",
+      "workers": 2
+    }
+  ],
+  "teams": {
+    "baseline": {
+      "approach": "Reflex",
+      "author": "Course staff",
+      "description": "Provided reflex baseline",
+      "entry": "baseline_team.py",
+      "folder": "pacman-contest/src/contest",
+      "hash": "80143ebae9f80a4edf1b163a4c4c07a8d1f514f5da71e80cef12bb8672ff78ae",
+      "id": "baseline",
+      "options": {}
+    },
+    "submission": {
+      "approach": "Current submission",
+      "author": "PacLab",
+      "description": "Current root submission",
+      "entry": "my_team.py",
+      "folder": ".",
+      "hash": "6d435e65ec94adb966e835271acf1bc53ef5f196aeeaa012c4a02ac7908a8cc2",
+      "id": "submission",
+      "options": {}
+    }
+  },
+  "tool_hash": "515f36a9412e70683d8e267533756abdc49f733cb9755210be3f3a1771cf432f",
+  "workers": 2
+}
