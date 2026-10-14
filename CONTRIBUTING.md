@@ -208,13 +208,14 @@ The `control_*` folders supply random legal actions, nearest-food greed, two off
 and two defensive reflex agents. They provide different diagnostic behaviour; weakness is not assumed
 for every map or matchup. Do not treat repeated baseline-equivalent references as independent evidence.
 
-`evaluation/configs/portfolio.json` includes the complete candidate roster, inference variants, course
-references and basic controls. Use `--dry-run` to inspect its scope before launching a comparison.
+Add discovered reference/control IDs and your implemented candidates to a copy of
+`evaluation/configs/league.json`. Use `--list-teams` to see available IDs and `--dry-run` to inspect
+the configured scope before launching a comparison. No experimental strategy roster is bundled here.
 Reliability checks against baseline are separate from selecting a tournament winner:
 
 ```bash
-venv/bin/python -m evaluation.validate_candidates aljaz_astar aljaz_minimax --prefix check-new --jobs 2
-venv/bin/python -m evaluation.validate_candidates aljaz_uct --prefix timing-new --jobs 1 --layouts jumboCapture
+venv/bin/python -m evaluation.validate_candidates submission control_greedy_food --prefix check-new --jobs 2
+venv/bin/python -m evaluation.validate_candidates submission --prefix timing-new --jobs 1 --layouts jumboCapture
 ```
 
 The validation command returns failure for missing matches, crashes, forfeits or timing events. A prefix
