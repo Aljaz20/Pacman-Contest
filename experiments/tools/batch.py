@@ -1,6 +1,6 @@
 """Run a batch of diagnostic matches in parallel; both colours per (team, opponent, layout, seed).
 
-    venv/bin/python -B local-runs/lab/batch.py OUT.jsonl --teams A.py B.py --opps L2.py \
+    venv/bin/python -B experiments/tools/batch.py OUT.jsonl --teams A.py B.py --opps L2.py \
         --layouts defaultCapture RANDOM1 ... --seeds 1 2 --jobs 8
 """
 import argparse

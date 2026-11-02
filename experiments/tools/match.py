@@ -1,7 +1,7 @@
 """Diagnostic match runner: plays one game and replays it to extract per-agent events.
 
 Usage (single game, prints one JSON line):
-    venv/bin/python -B local-runs/lab/match.py RED_TEAM.py BLUE_TEAM.py LAYOUT SEED
+    venv/bin/python -B experiments/tools/match.py RED_TEAM.py BLUE_TEAM.py LAYOUT SEED
 LAYOUT is a fixed layout name (e.g. defaultCapture) or RANDOM<n>.
 """
 import contextlib

@@ -1,7 +1,7 @@
 # aljaz2 - investigation findings (2026-10-28)
 
 Measured with `experiments` tools (own harness, full game replay, per-raid episode analysis).
-Opponent L2 = private file from RF34684 (kept out of git in `local-runs/ext/`).
+Opponent L2 = external reference team from RF34684 (now in `teams/l2/`, used only as an opponent).
 Pool: 10 fixed layouts + RANDOM1-10, both colours.
 
 ## Headline numbers

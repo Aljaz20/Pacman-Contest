@@ -1,6 +1,6 @@
 """ASCII frames of a recorded game.
 
-    venv/bin/python -B local-runs/lab/show.py OUT.jsonl ROW_INDEX FROM_STEP TO_STEP [EVERY]
+    venv/bin/python -B experiments/tools/show.py OUT.jsonl ROW_INDEX FROM_STEP TO_STEP [EVERY]
 Agents are drawn as digits 0-3 (upper-case P marker in the legend when pacman); food '.', capsule 'o'.
 """
 import json

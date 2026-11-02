@@ -1,6 +1,6 @@
 """Raid/invasion episode analysis over saved move histories (rows with 'moves').
 
-    venv/bin/python -B local-runs/lab/episodes.py OUT.jsonl
+    venv/bin/python -B experiments/tools/episodes.py OUT.jsonl
 For every pacman episode (agent crosses into enemy half until it is home again or dies) we record
 food eaten, outcome, and how the defending team was positioned during the episode.
 """

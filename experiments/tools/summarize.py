@@ -1,6 +1,6 @@
 """Summarise batch JSONL from the perspective of each 'team' (non-opponent) file.
 
-    venv/bin/python -B local-runs/lab/summarize.py OUT.jsonl [--focus substring]
+    venv/bin/python -B experiments/tools/summarize.py OUT.jsonl [--focus substring]
 """
 import collections
 import json
