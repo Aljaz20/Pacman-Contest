@@ -1,0 +1,7550 @@
+{
+  "completed_episodes": 360,
+  "feature_count": 19,
+  "feature_schema": [
+    "bias",
+    "goal_progress",
+    "food_eaten",
+    "food_returned",
+    "danger_or_death",
+    "dangerous_dead_end",
+    "stop",
+    "reverse",
+    "capsule_eaten",
+    "score_change",
+    "recent_visits",
+    "defending_home",
+    "carried_food",
+    "home_burden",
+    "invader_captured",
+    "safe_exits",
+    "teammate_conflict",
+    "return_deadline",
+    "captured_enemy_load"
+  ],
+  "feature_schema_version": 3,
+  "game_evidence": [
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58001
+      },
+      "episode": 0,
+      "score": 20
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58001
+      },
+      "episode": 1,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58002
+      },
+      "episode": 2,
+      "score": -6
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58002
+      },
+      "episode": 3,
+      "score": -11
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58003
+      },
+      "episode": 4,
+      "score": -17
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58003
+      },
+      "episode": 5,
+      "score": -10
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58004
+      },
+      "episode": 6,
+      "score": 47
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58004
+      },
+      "episode": 7,
+      "score": 55
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58005
+      },
+      "episode": 8,
+      "score": 14
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58005
+      },
+      "episode": 9,
+      "score": 5
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58006
+      },
+      "episode": 10,
+      "score": -29
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58006
+      },
+      "episode": 11,
+      "score": -26
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58007
+      },
+      "episode": 12,
+      "score": 35
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58007
+      },
+      "episode": 13,
+      "score": 42
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58008
+      },
+      "episode": 14,
+      "score": -2
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58008
+      },
+      "episode": 15,
+      "score": -18
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58009
+      },
+      "episode": 16,
+      "score": 4
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58009
+      },
+      "episode": 17,
+      "score": -16
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58010
+      },
+      "episode": 18,
+      "score": 16
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58010
+      },
+      "episode": 19,
+      "score": 11
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58011
+      },
+      "episode": 20,
+      "score": -17
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58011
+      },
+      "episode": 21,
+      "score": -6
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58012
+      },
+      "episode": 22,
+      "score": -17
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58012
+      },
+      "episode": 23,
+      "score": -2
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58013
+      },
+      "episode": 24,
+      "score": 53
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58013
+      },
+      "episode": 25,
+      "score": 63
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58014
+      },
+      "episode": 26,
+      "score": 2
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58014
+      },
+      "episode": 27,
+      "score": 26
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58015
+      },
+      "episode": 28,
+      "score": -25
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58015
+      },
+      "episode": 29,
+      "score": -26
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58016
+      },
+      "episode": 30,
+      "score": 30
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58016
+      },
+      "episode": 31,
+      "score": 32
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58017
+      },
+      "episode": 32,
+      "score": 29
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58017
+      },
+      "episode": 33,
+      "score": 1
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58018
+      },
+      "episode": 34,
+      "score": -11
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58018
+      },
+      "episode": 35,
+      "score": -9
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58019
+      },
+      "episode": 36,
+      "score": 12
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58019
+      },
+      "episode": 37,
+      "score": 19
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58020
+      },
+      "episode": 38,
+      "score": -7
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58020
+      },
+      "episode": 39,
+      "score": -5
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58021
+      },
+      "episode": 40,
+      "score": -17
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58021
+      },
+      "episode": 41,
+      "score": -18
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58022
+      },
+      "episode": 42,
+      "score": 77
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58022
+      },
+      "episode": 43,
+      "score": 52
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58023
+      },
+      "episode": 44,
+      "score": -19
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58023
+      },
+      "episode": 45,
+      "score": 20
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58024
+      },
+      "episode": 46,
+      "score": -38
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58024
+      },
+      "episode": 47,
+      "score": -31
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58025
+      },
+      "episode": 48,
+      "score": 41
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58025
+      },
+      "episode": 49,
+      "score": 41
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58026
+      },
+      "episode": 50,
+      "score": 0
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58026
+      },
+      "episode": 51,
+      "score": -25
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58027
+      },
+      "episode": 52,
+      "score": -9
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58027
+      },
+      "episode": 53,
+      "score": -7
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58028
+      },
+      "episode": 54,
+      "score": 17
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58028
+      },
+      "episode": 55,
+      "score": 8
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58029
+      },
+      "episode": 56,
+      "score": -17
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58029
+      },
+      "episode": 57,
+      "score": -15
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58030
+      },
+      "episode": 58,
+      "score": -1
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58030
+      },
+      "episode": 59,
+      "score": -13
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58031
+      },
+      "episode": 60,
+      "score": 78
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58031
+      },
+      "episode": 61,
+      "score": 58
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58032
+      },
+      "episode": 62,
+      "score": -14
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58032
+      },
+      "episode": 63,
+      "score": 19
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58033
+      },
+      "episode": 64,
+      "score": -20
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58033
+      },
+      "episode": 65,
+      "score": -33
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58034
+      },
+      "episode": 66,
+      "score": 42
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58034
+      },
+      "episode": 67,
+      "score": 32
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58035
+      },
+      "episode": 68,
+      "score": 27
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58035
+      },
+      "episode": 69,
+      "score": -12
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58036
+      },
+      "episode": 70,
+      "score": 4
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58036
+      },
+      "episode": 71,
+      "score": -31
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58037
+      },
+      "episode": 72,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58037
+      },
+      "episode": 73,
+      "score": 9
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58038
+      },
+      "episode": 74,
+      "score": -3
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58038
+      },
+      "episode": 75,
+      "score": -12
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58039
+      },
+      "episode": 76,
+      "score": -2
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58039
+      },
+      "episode": 77,
+      "score": -18
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58040
+      },
+      "episode": 78,
+      "score": 76
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58040
+      },
+      "episode": 79,
+      "score": 40
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58041
+      },
+      "episode": 80,
+      "score": 16
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58041
+      },
+      "episode": 81,
+      "score": 8
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58042
+      },
+      "episode": 82,
+      "score": -15
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58042
+      },
+      "episode": 83,
+      "score": -16
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58043
+      },
+      "episode": 84,
+      "score": 36
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58043
+      },
+      "episode": 85,
+      "score": 32
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58044
+      },
+      "episode": 86,
+      "score": 33
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58044
+      },
+      "episode": 87,
+      "score": 2
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58045
+      },
+      "episode": 88,
+      "score": -7
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58045
+      },
+      "episode": 89,
+      "score": 11
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58046
+      },
+      "episode": 90,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58046
+      },
+      "episode": 91,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58047
+      },
+      "episode": 92,
+      "score": -5
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58047
+      },
+      "episode": 93,
+      "score": -9
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58048
+      },
+      "episode": 94,
+      "score": -1
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58048
+      },
+      "episode": 95,
+      "score": -18
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58049
+      },
+      "episode": 96,
+      "score": 63
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58049
+      },
+      "episode": 97,
+      "score": 77
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58050
+      },
+      "episode": 98,
+      "score": -31
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58050
+      },
+      "episode": 99,
+      "score": -3
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58051
+      },
+      "episode": 100,
+      "score": -17
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58051
+      },
+      "episode": 101,
+      "score": -11
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58052
+      },
+      "episode": 102,
+      "score": 40
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58052
+      },
+      "episode": 103,
+      "score": 42
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58053
+      },
+      "episode": 104,
+      "score": 22
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58053
+      },
+      "episode": 105,
+      "score": 8
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58054
+      },
+      "episode": 106,
+      "score": -3
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58054
+      },
+      "episode": 107,
+      "score": 20
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58055
+      },
+      "episode": 108,
+      "score": 12
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58055
+      },
+      "episode": 109,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58056
+      },
+      "episode": 110,
+      "score": -12
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58056
+      },
+      "episode": 111,
+      "score": -12
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58057
+      },
+      "episode": 112,
+      "score": -11
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58057
+      },
+      "episode": 113,
+      "score": -18
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58058
+      },
+      "episode": 114,
+      "score": 49
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58058
+      },
+      "episode": 115,
+      "score": 52
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58059
+      },
+      "episode": 116,
+      "score": -9
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58059
+      },
+      "episode": 117,
+      "score": 7
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58060
+      },
+      "episode": 118,
+      "score": -25
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58060
+      },
+      "episode": 119,
+      "score": -19
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58061
+      },
+      "episode": 120,
+      "score": 41
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58061
+      },
+      "episode": 121,
+      "score": 43
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58062
+      },
+      "episode": 122,
+      "score": 1
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58062
+      },
+      "episode": 123,
+      "score": -1
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58063
+      },
+      "episode": 124,
+      "score": -1
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58063
+      },
+      "episode": 125,
+      "score": -27
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58064
+      },
+      "episode": 126,
+      "score": 14
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58064
+      },
+      "episode": 127,
+      "score": 20
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58065
+      },
+      "episode": 128,
+      "score": -7
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58065
+      },
+      "episode": 129,
+      "score": -15
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58066
+      },
+      "episode": 130,
+      "score": -2
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58066
+      },
+      "episode": 131,
+      "score": -6
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58067
+      },
+      "episode": 132,
+      "score": 79
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58067
+      },
+      "episode": 133,
+      "score": 77
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58068
+      },
+      "episode": 134,
+      "score": -21
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58068
+      },
+      "episode": 135,
+      "score": -9
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58069
+      },
+      "episode": 136,
+      "score": -23
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58069
+      },
+      "episode": 137,
+      "score": -23
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58070
+      },
+      "episode": 138,
+      "score": 43
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58070
+      },
+      "episode": 139,
+      "score": 38
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58071
+      },
+      "episode": 140,
+      "score": -12
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58071
+      },
+      "episode": 141,
+      "score": -16
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58072
+      },
+      "episode": 142,
+      "score": -15
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58072
+      },
+      "episode": 143,
+      "score": -24
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58073
+      },
+      "episode": 144,
+      "score": 15
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58073
+      },
+      "episode": 145,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58074
+      },
+      "episode": 146,
+      "score": -11
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58074
+      },
+      "episode": 147,
+      "score": -12
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58075
+      },
+      "episode": 148,
+      "score": -11
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58075
+      },
+      "episode": 149,
+      "score": 1
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58076
+      },
+      "episode": 150,
+      "score": 63
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58076
+      },
+      "episode": 151,
+      "score": 56
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58077
+      },
+      "episode": 152,
+      "score": -17
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58077
+      },
+      "episode": 153,
+      "score": -10
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58078
+      },
+      "episode": 154,
+      "score": -24
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58078
+      },
+      "episode": 155,
+      "score": -25
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58079
+      },
+      "episode": 156,
+      "score": 37
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58079
+      },
+      "episode": 157,
+      "score": 41
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58080
+      },
+      "episode": 158,
+      "score": -40
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58080
+      },
+      "episode": 159,
+      "score": 9
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58081
+      },
+      "episode": 160,
+      "score": -1
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58081
+      },
+      "episode": 161,
+      "score": -5
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58082
+      },
+      "episode": 162,
+      "score": 1
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58082
+      },
+      "episode": 163,
+      "score": 19
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58083
+      },
+      "episode": 164,
+      "score": -7
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58083
+      },
+      "episode": 165,
+      "score": -3
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58084
+      },
+      "episode": 166,
+      "score": -2
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58084
+      },
+      "episode": 167,
+      "score": -10
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58085
+      },
+      "episode": 168,
+      "score": 32
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58085
+      },
+      "episode": 169,
+      "score": 68
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58086
+      },
+      "episode": 170,
+      "score": -27
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58086
+      },
+      "episode": 171,
+      "score": -19
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58087
+      },
+      "episode": 172,
+      "score": -20
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58087
+      },
+      "episode": 173,
+      "score": -21
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58088
+      },
+      "episode": 174,
+      "score": 33
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58088
+      },
+      "episode": 175,
+      "score": 42
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58089
+      },
+      "episode": 176,
+      "score": -10
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58089
+      },
+      "episode": 177,
+      "score": -22
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58090
+      },
+      "episode": 178,
+      "score": -6
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58090
+      },
+      "episode": 179,
+      "score": -8
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58091
+      },
+      "episode": 180,
+      "score": 15
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58091
+      },
+      "episode": 181,
+      "score": 15
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58092
+      },
+      "episode": 182,
+      "score": -2
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58092
+      },
+      "episode": 183,
+      "score": -7
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58093
+      },
+      "episode": 184,
+      "score": -10
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58093
+      },
+      "episode": 185,
+      "score": -4
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58094
+      },
+      "episode": 186,
+      "score": 51
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58094
+      },
+      "episode": 187,
+      "score": 34
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58095
+      },
+      "episode": 188,
+      "score": -15
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58095
+      },
+      "episode": 189,
+      "score": -9
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58096
+      },
+      "episode": 190,
+      "score": -23
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58096
+      },
+      "episode": 191,
+      "score": -33
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58097
+      },
+      "episode": 192,
+      "score": 43
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58097
+      },
+      "episode": 193,
+      "score": 41
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58098
+      },
+      "episode": 194,
+      "score": -6
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58098
+      },
+      "episode": 195,
+      "score": -8
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58099
+      },
+      "episode": 196,
+      "score": -18
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58099
+      },
+      "episode": 197,
+      "score": -38
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58100
+      },
+      "episode": 198,
+      "score": 19
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58100
+      },
+      "episode": 199,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58101
+      },
+      "episode": 200,
+      "score": -12
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58101
+      },
+      "episode": 201,
+      "score": -12
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58102
+      },
+      "episode": 202,
+      "score": -2
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58102
+      },
+      "episode": 203,
+      "score": -15
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58103
+      },
+      "episode": 204,
+      "score": 64
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58103
+      },
+      "episode": 205,
+      "score": 68
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58104
+      },
+      "episode": 206,
+      "score": -10
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58104
+      },
+      "episode": 207,
+      "score": -8
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58105
+      },
+      "episode": 208,
+      "score": -26
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58105
+      },
+      "episode": 209,
+      "score": -22
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58106
+      },
+      "episode": 210,
+      "score": 43
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58106
+      },
+      "episode": 211,
+      "score": 38
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58107
+      },
+      "episode": 212,
+      "score": -8
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58107
+      },
+      "episode": 213,
+      "score": -31
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58108
+      },
+      "episode": 214,
+      "score": 0
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58108
+      },
+      "episode": 215,
+      "score": -12
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58109
+      },
+      "episode": 216,
+      "score": 19
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58109
+      },
+      "episode": 217,
+      "score": 14
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58110
+      },
+      "episode": 218,
+      "score": -11
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58110
+      },
+      "episode": 219,
+      "score": -13
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58111
+      },
+      "episode": 220,
+      "score": -5
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58111
+      },
+      "episode": 221,
+      "score": -9
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58112
+      },
+      "episode": 222,
+      "score": 38
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58112
+      },
+      "episode": 223,
+      "score": 54
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58113
+      },
+      "episode": 224,
+      "score": -15
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58113
+      },
+      "episode": 225,
+      "score": 1
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58114
+      },
+      "episode": 226,
+      "score": -25
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58114
+      },
+      "episode": 227,
+      "score": -32
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58115
+      },
+      "episode": 228,
+      "score": 42
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58115
+      },
+      "episode": 229,
+      "score": 43
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58116
+      },
+      "episode": 230,
+      "score": -11
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58116
+      },
+      "episode": 231,
+      "score": 4
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58117
+      },
+      "episode": 232,
+      "score": 16
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58117
+      },
+      "episode": 233,
+      "score": -12
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58118
+      },
+      "episode": 234,
+      "score": 17
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58118
+      },
+      "episode": 235,
+      "score": 17
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58119
+      },
+      "episode": 236,
+      "score": -10
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58119
+      },
+      "episode": 237,
+      "score": -8
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58120
+      },
+      "episode": 238,
+      "score": -10
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58120
+      },
+      "episode": 239,
+      "score": -6
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58121
+      },
+      "episode": 240,
+      "score": 74
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58121
+      },
+      "episode": 241,
+      "score": 62
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58122
+      },
+      "episode": 242,
+      "score": -35
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58122
+      },
+      "episode": 243,
+      "score": 11
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58123
+      },
+      "episode": 244,
+      "score": -43
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58123
+      },
+      "episode": 245,
+      "score": -37
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58124
+      },
+      "episode": 246,
+      "score": 29
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58124
+      },
+      "episode": 247,
+      "score": 42
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58125
+      },
+      "episode": 248,
+      "score": -29
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58125
+      },
+      "episode": 249,
+      "score": -41
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58126
+      },
+      "episode": 250,
+      "score": -10
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58126
+      },
+      "episode": 251,
+      "score": -39
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58127
+      },
+      "episode": 252,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58127
+      },
+      "episode": 253,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58128
+      },
+      "episode": 254,
+      "score": -18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58128
+      },
+      "episode": 255,
+      "score": -13
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58129
+      },
+      "episode": 256,
+      "score": -9
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58129
+      },
+      "episode": 257,
+      "score": -7
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58130
+      },
+      "episode": 258,
+      "score": 74
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58130
+      },
+      "episode": 259,
+      "score": 26
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58131
+      },
+      "episode": 260,
+      "score": -6
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58131
+      },
+      "episode": 261,
+      "score": -27
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58132
+      },
+      "episode": 262,
+      "score": -32
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58132
+      },
+      "episode": 263,
+      "score": -27
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58133
+      },
+      "episode": 264,
+      "score": 32
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58133
+      },
+      "episode": 265,
+      "score": 35
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58134
+      },
+      "episode": 266,
+      "score": -34
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58134
+      },
+      "episode": 267,
+      "score": -2
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58135
+      },
+      "episode": 268,
+      "score": 7
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58135
+      },
+      "episode": 269,
+      "score": -3
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58136
+      },
+      "episode": 270,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58136
+      },
+      "episode": 271,
+      "score": 14
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58137
+      },
+      "episode": 272,
+      "score": -13
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58137
+      },
+      "episode": 273,
+      "score": -18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58138
+      },
+      "episode": 274,
+      "score": 0
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58138
+      },
+      "episode": 275,
+      "score": -9
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58139
+      },
+      "episode": 276,
+      "score": 92
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58139
+      },
+      "episode": 277,
+      "score": 70
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58140
+      },
+      "episode": 278,
+      "score": -34
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58140
+      },
+      "episode": 279,
+      "score": -15
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58141
+      },
+      "episode": 280,
+      "score": -37
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58141
+      },
+      "episode": 281,
+      "score": -27
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58142
+      },
+      "episode": 282,
+      "score": 38
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58142
+      },
+      "episode": 283,
+      "score": 21
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58143
+      },
+      "episode": 284,
+      "score": -20
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58143
+      },
+      "episode": 285,
+      "score": -10
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58144
+      },
+      "episode": 286,
+      "score": 7
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58144
+      },
+      "episode": 287,
+      "score": 0
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58145
+      },
+      "episode": 288,
+      "score": 19
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58145
+      },
+      "episode": 289,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58146
+      },
+      "episode": 290,
+      "score": -8
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58146
+      },
+      "episode": 291,
+      "score": -9
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58147
+      },
+      "episode": 292,
+      "score": 4
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58147
+      },
+      "episode": 293,
+      "score": -18
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58148
+      },
+      "episode": 294,
+      "score": 22
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58148
+      },
+      "episode": 295,
+      "score": 54
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58149
+      },
+      "episode": 296,
+      "score": -20
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58149
+      },
+      "episode": 297,
+      "score": -8
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58150
+      },
+      "episode": 298,
+      "score": -41
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58150
+      },
+      "episode": 299,
+      "score": -27
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58151
+      },
+      "episode": 300,
+      "score": 40
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58151
+      },
+      "episode": 301,
+      "score": 35
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58152
+      },
+      "episode": 302,
+      "score": 5
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58152
+      },
+      "episode": 303,
+      "score": 17
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58153
+      },
+      "episode": 304,
+      "score": 23
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58153
+      },
+      "episode": 305,
+      "score": -24
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58154
+      },
+      "episode": 306,
+      "score": 11
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58154
+      },
+      "episode": 307,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58155
+      },
+      "episode": 308,
+      "score": -11
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58155
+      },
+      "episode": 309,
+      "score": -6
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58156
+      },
+      "episode": 310,
+      "score": -6
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58156
+      },
+      "episode": 311,
+      "score": -12
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58157
+      },
+      "episode": 312,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58157
+      },
+      "episode": 313,
+      "score": 35
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58158
+      },
+      "episode": 314,
+      "score": -25
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58158
+      },
+      "episode": 315,
+      "score": 2
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58159
+      },
+      "episode": 316,
+      "score": -8
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58159
+      },
+      "episode": 317,
+      "score": -16
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58160
+      },
+      "episode": 318,
+      "score": 32
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58160
+      },
+      "episode": 319,
+      "score": 18
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58161
+      },
+      "episode": 320,
+      "score": 22
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58161
+      },
+      "episode": 321,
+      "score": 3
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58162
+      },
+      "episode": 322,
+      "score": -2
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58162
+      },
+      "episode": 323,
+      "score": -14
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58163
+      },
+      "episode": 324,
+      "score": 12
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58163
+      },
+      "episode": 325,
+      "score": 17
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58164
+      },
+      "episode": 326,
+      "score": -9
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58164
+      },
+      "episode": 327,
+      "score": -18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58165
+      },
+      "episode": 328,
+      "score": -7
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58165
+      },
+      "episode": 329,
+      "score": 1
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58166
+      },
+      "episode": 330,
+      "score": 70
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58166
+      },
+      "episode": 331,
+      "score": 19
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58167
+      },
+      "episode": 332,
+      "score": -13
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58167
+      },
+      "episode": 333,
+      "score": -19
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58168
+      },
+      "episode": 334,
+      "score": -15
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58168
+      },
+      "episode": 335,
+      "score": -33
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58169
+      },
+      "episode": 336,
+      "score": 20
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58169
+      },
+      "episode": 337,
+      "score": -28
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58170
+      },
+      "episode": 338,
+      "score": -10
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58170
+      },
+      "episode": 339,
+      "score": -5
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58171
+      },
+      "episode": 340,
+      "score": -15
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58171
+      },
+      "episode": 341,
+      "score": -21
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58172
+      },
+      "episode": 342,
+      "score": 13
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58172
+      },
+      "episode": 343,
+      "score": 16
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58173
+      },
+      "episode": 344,
+      "score": -18
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58173
+      },
+      "episode": 345,
+      "score": -9
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58174
+      },
+      "episode": 346,
+      "score": -10
+    },
+    {
+      "condition": {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58174
+      },
+      "episode": 347,
+      "score": -5
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58175
+      },
+      "episode": 348,
+      "score": 39
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58175
+      },
+      "episode": 349,
+      "score": 29
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58176
+      },
+      "episode": 350,
+      "score": -20
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58176
+      },
+      "episode": 351,
+      "score": -42
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58177
+      },
+      "episode": 352,
+      "score": -38
+    },
+    {
+      "condition": {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58177
+      },
+      "episode": 353,
+      "score": -43
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58178
+      },
+      "episode": 354,
+      "score": 41
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58178
+      },
+      "episode": 355,
+      "score": 32
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58179
+      },
+      "episode": 356,
+      "score": -21
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58179
+      },
+      "episode": 357,
+      "score": -14
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58180
+      },
+      "episode": 358,
+      "score": 6
+    },
+    {
+      "condition": {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58180
+      },
+      "episode": 359,
+      "score": -5
+    }
+  ],
+  "kind": "qlearning",
+  "last_weights": [
+    2.597705662286545,
+    9.638884013813128,
+    5.70377273901907,
+    28.112464866735525,
+    -5.800979457253071,
+    -7.181197071360326,
+    -0.06478721121644142,
+    0.09098763365748284,
+    8.062582694600584,
+    11.1124648667355,
+    -1.781743805348558,
+    -3.091844488395516,
+    63.67352740653719,
+    -3.4827827161584213,
+    4.189922002087794,
+    1.073196252994408,
+    -0.6878341571486665,
+    -10.871804523970486,
+    -2.2512303285509043
+  ],
+  "selected_episode": 160,
+  "selection_evidence": {
+    "conditions": [
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 68001
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 68001
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 68002
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 68002
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 68003
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 68003
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 68004
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 68004
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 68005
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 68005
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 68006
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 68006
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 68007
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 68007
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 68008
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 68008
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 68009
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 68009
+      }
+    ],
+    "mean": 27.055555555555557,
+    "scores": [
+      18,
+      18,
+      2,
+      -9,
+      -7,
+      0,
+      73,
+      118,
+      34,
+      46,
+      3,
+      16,
+      41,
+      41,
+      37,
+      24,
+      31,
+      1
+    ],
+    "selection_objective": "local league 3/1/0 points rate, then mean margin",
+    "selection_points": 46,
+    "selection_points_rate": 0.8518518518518519
+  },
+  "training_provenance": {
+    "capture_reward": false,
+    "conditions": [
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58001
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58001
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58002
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58002
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58003
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58003
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58004
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58004
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58005
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58005
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58006
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58006
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58007
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58007
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58008
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58008
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58009
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58009
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58010
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58010
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58011
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58011
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58012
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58012
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58013
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58013
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58014
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58014
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58015
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58015
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58016
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58016
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58017
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58017
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58018
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58018
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58019
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58019
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58020
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58020
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58021
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58021
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58022
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58022
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58023
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58023
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58024
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58024
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58025
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58025
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58026
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58026
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58027
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58027
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58028
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58028
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58029
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58029
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58030
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58030
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58031
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58031
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58032
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58032
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58033
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58033
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58034
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58034
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58035
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58035
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58036
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58036
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58037
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58037
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58038
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58038
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58039
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58039
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58040
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58040
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58041
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58041
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58042
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58042
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58043
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58043
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58044
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58044
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58045
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58045
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58046
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58046
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58047
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58047
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58048
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58048
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58049
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58049
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58050
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58050
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58051
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58051
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58052
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58052
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58053
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58053
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58054
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58054
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58055
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58055
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58056
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58056
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58057
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58057
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58058
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58058
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58059
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58059
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58060
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58060
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58061
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58061
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58062
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58062
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58063
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58063
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58064
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58064
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58065
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58065
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58066
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58066
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58067
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58067
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58068
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58068
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58069
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58069
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58070
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58070
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58071
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58071
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58072
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58072
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58073
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58073
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58074
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58074
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58075
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58075
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58076
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58076
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58077
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58077
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58078
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58078
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58079
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58079
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58080
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58080
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58081
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58081
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58082
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58082
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58083
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58083
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58084
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58084
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58085
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58085
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58086
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58086
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58087
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58087
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58088
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58088
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58089
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58089
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58090
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58090
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58091
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58091
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58092
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58092
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58093
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58093
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58094
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58094
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58095
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58095
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58096
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58096
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58097
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58097
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58098
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58098
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58099
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58099
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58100
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58100
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58101
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58101
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58102
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58102
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58103
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58103
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58104
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58104
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58105
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58105
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58106
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58106
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58107
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58107
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58108
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58108
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58109
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58109
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58110
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58110
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58111
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58111
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58112
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58112
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58113
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58113
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58114
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58114
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58115
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58115
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58116
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58116
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58117
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58117
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58118
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58118
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58119
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58119
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58120
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58120
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58121
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58121
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58122
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58122
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58123
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58123
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58124
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58124
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58125
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58125
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58126
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58126
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58127
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58127
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58128
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58128
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58129
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58129
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58130
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58130
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58131
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58131
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58132
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58132
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58133
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58133
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58134
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58134
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58135
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58135
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58136
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58136
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58137
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58137
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58138
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58138
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58139
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58139
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58140
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58140
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58141
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58141
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58142
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58142
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58143
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58143
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58144
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58144
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58145
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58145
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58146
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58146
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58147
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58147
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58148
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58148
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58149
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58149
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58150
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58150
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58151
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58151
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58152
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58152
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58153
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58153
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58154
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58154
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58155
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58155
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58156
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58156
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58157
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58157
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58158
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58158
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58159
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58159
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58160
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58160
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58161
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58161
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58162
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58162
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58163
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58163
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58164
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58164
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58165
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58165
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58166
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58166
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58167
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58167
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58168
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58168
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58169
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58169
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58170
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58170
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58171
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58171
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58172
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58172
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58173
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58173
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58174
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58174
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58175
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58175
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58176
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58176
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58177
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58177
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 58178
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 58178
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 58179
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 58179
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 58180
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 58180
+      }
+    ],
+    "dependency_versions": {
+      "frozendict": "2.3.4"
+    },
+    "engine_source_hashes": {
+      "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "baseline_team.py": "2d75091d99d5ad9302cbfd6fdefccafa8c7df2157c2e7e7b10dcb22a094331e5",
+      "capture.py": "55733a68857eae9c0bc14a48167e260aa52b52e9f9e405151b8fd6abe28d4994",
+      "capture_agents.py": "a448ab600ff7c4279a104a3795ba50f5f24e69d86b072568708021f573ca941b",
+      "capture_graphics_display.py": "ee753ae7ca90fb2bb59ee82ed9f99a2a9dca760169edb7d123cb8ff9c72a3924",
+      "distance_calculator.py": "41c87a1ccaa31ef76567ad150e97ffde6d62117932ffec382073341156e622ee",
+      "game.py": "0cc7637763510dc6bdbfd17216e0377d7c07220c1fbed503a2f06a8011ad1092",
+      "generate_tournament_layouts.py": "80c5a82301f9a0afc343ad3430b48241d7c1503be3a12cb21bdf34d0f25b46c6",
+      "ghost_agents.py": "bcf0a38d4c1b82396145fa8f80b2419f0abd0f4f6e1c16d61a4a14cab23017a3",
+      "graphics_display.py": "0a6c2c329d61555f464439f3896766cfa4de519d5d43608050acf156ae28b49c",
+      "graphics_utils.py": "3a230ea149fd3f89246cfcbf5879a3f2718a8ff55637b11e8a3de72366217ce6",
+      "keyboard_agents.py": "b310e8d189aa33d48902fc4284d5809680ddb371af3144346def853280ea28ca",
+      "layout.py": "a9f1fe465cec34e63c10858f992e54221686dce80ab521fffc10a67df7e60926",
+      "maze_generator.py": "3d2268db23f6b4cf8d309d8642db36910ceb8cbb99aeb2a9cb3eae0cb1307e2a",
+      "pacman.py": "e039b74c80a75852f4f488c83b5abe993336ad3bfebb25ed06ef655395f5523d",
+      "pacman_agents.py": "63d5ce8458ff1fddc418a23998a436a8194cf455cb27da5a111f57ea5d5d98fe",
+      "replay.py": "0e4800ca89676f555ae88673b63b158b78745762d1f4f655eb92be3ce268e744",
+      "text_display.py": "1612728450588687980e30170af0eb4e1660a51ef1cfdc130acfc1a5d937526f",
+      "unpack.py": "16a1642170cc30da8ffd15d2c5d7c3e67081a0b64f2ffee6c7e751cab359d985",
+      "util.py": "48e63f8783133e78cc31b5ac74c7c62ade455d80c58144f69b80d584e9f3e1d3"
+    },
+    "episodes": 360,
+    "feature_schema": [
+      "bias",
+      "goal_progress",
+      "food_eaten",
+      "food_returned",
+      "danger_or_death",
+      "dangerous_dead_end",
+      "stop",
+      "reverse",
+      "capsule_eaten",
+      "score_change",
+      "recent_visits",
+      "defending_home",
+      "carried_food",
+      "home_burden",
+      "invader_captured",
+      "safe_exits",
+      "teammate_conflict",
+      "return_deadline",
+      "captured_enemy_load"
+    ],
+    "layout_hashes": {
+      "defaultCapture": "d632d4e2d51086ace9fe8590fdc4f49b947514e06a73adabf0f0f4f6bd739bc8",
+      "mediumCapture": "c2fdff627a93332d7909d6bd9f5fedb127a02c8c39d58bcc277ff94bc6399bba",
+      "officeCapture": "a6de4732c7bbc82a7b1a3d4533d82359248907a77dd9cda8c886aaf4402cb648"
+    },
+    "moves": 1200,
+    "objective": "normalized semi-gradient TD, same role action mask for bootstrap/exploration/deployment",
+    "opponent_hashes": {
+      "aljaz_astar_v3": "ea72f262b8bdc7524b6f81a413fb41b9b720b6750f50537d57a6ceeb92cf249c",
+      "aljaz_mdp_frontier_v4": "09599e5889f4c05171159a3e72852e9cb9bce9529d5ce57fa49c819450a628bc",
+      "baseline": "108a2e542a89e79439bb1681ec780f60c15e9f1ee79ca952c3465d1a62979b90"
+    },
+    "python": "3.8.20 (default, Oct  2 2024, 16:12:59) \n[Clang 18.1.8 ]",
+    "revision": "v16_roles",
+    "run_id": "refine-role-q-v16",
+    "selection": "internal fixed 18-game 3/1/0 points rate then mean score; initializer included",
+    "source_hashes": {
+      "evaluation/core.py": "ae42a66376345bcd5f7664d3ab0a17cb2954896b0a8215eb21b5f91abbbc8192",
+      "training/fit_models.py": "940113f51823ba6795d3f6c159e0240acf52d299626eae344521228d13440113",
+      "training/fit_role_q.py": "84f444d5032355c46bceec11d909d1ce19a81a5e0291568c2f8ad25bd7366bcb",
+      "training/paclab_core.py": "046a2b6a03dff270ba23048e9ce11eb8cece3b6837c0d8f00be19b925ff82a65",
+      "training/paclab_role_linear.py": "1a0b9452b8c4fa534e3e3535738ff7402275bb4f2259208fdffdfb2ddfa064a3",
+      "training/paclab_search.py": "fa0b5c8d489831e11e232d50475a88253873d59c052302f56556ea3f0ceb7000",
+      "training/run_role_q.py": "62693662d4d91614e6e360d5d945f6c44c978f975f654cfc9b02060fec21fa04"
+    },
+    "validate_every": 40,
+    "validation": [
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 68001
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 68001
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 68002
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 68002
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 68003
+      },
+      {
+        "layout": "defaultCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 68003
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 68004
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 68004
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 68005
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 68005
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 68006
+      },
+      {
+        "layout": "officeCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 68006
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": true,
+        "seed": 68007
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "baseline",
+        "red": false,
+        "seed": 68007
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": true,
+        "seed": 68008
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_astar_v3",
+        "red": false,
+        "seed": 68008
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": true,
+        "seed": 68009
+      },
+      {
+        "layout": "mediumCapture",
+        "opponent": "aljaz_mdp_frontier_v4",
+        "red": false,
+        "seed": 68009
+      }
+    ],
+    "warm_start_model_hash": "de6e2705ca3bfc799b60bb4e0564310ade4c96028084f09f2ad000a020d8c94d",
+    "warm_start_team": "aljaz_qlearning_v3"
+  },
+  "validation_history": [
+    {
+      "episode": 0,
+      "evidence": {
+        "conditions": [
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68003
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68003
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68006
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68006
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68009
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68009
+          }
+        ],
+        "mean": 21.444444444444443,
+        "scores": [
+          16,
+          18,
+          -2,
+          -6,
+          -2,
+          3,
+          94,
+          72,
+          43,
+          29,
+          0,
+          -9,
+          43,
+          41,
+          -5,
+          28,
+          24,
+          -1
+        ],
+        "selection_objective": "local league 3/1/0 points rate, then mean margin",
+        "selection_points": 34,
+        "selection_points_rate": 0.6296296296296297
+      }
+    },
+    {
+      "episode": 40,
+      "evidence": {
+        "conditions": [
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68003
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68003
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68006
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68006
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68009
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68009
+          }
+        ],
+        "mean": 20.0,
+        "scores": [
+          20,
+          14,
+          -2,
+          -11,
+          -4,
+          -5,
+          82,
+          84,
+          23,
+          50,
+          -8,
+          -9,
+          41,
+          37,
+          12,
+          23,
+          11,
+          2
+        ],
+        "selection_objective": "local league 3/1/0 points rate, then mean margin",
+        "selection_points": 36,
+        "selection_points_rate": 0.6666666666666666
+      }
+    },
+    {
+      "episode": 80,
+      "evidence": {
+        "conditions": [
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68003
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68003
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68006
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68006
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68009
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68009
+          }
+        ],
+        "mean": 27.5,
+        "scores": [
+          18,
+          18,
+          -1,
+          -5,
+          5,
+          0,
+          107,
+          110,
+          66,
+          42,
+          6,
+          -24,
+          43,
+          41,
+          27,
+          36,
+          12,
+          -6
+        ],
+        "selection_objective": "local league 3/1/0 points rate, then mean margin",
+        "selection_points": 40,
+        "selection_points_rate": 0.7407407407407407
+      }
+    },
+    {
+      "episode": 120,
+      "evidence": {
+        "conditions": [
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68003
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68003
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68006
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68006
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68009
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68009
+          }
+        ],
+        "mean": 22.88888888888889,
+        "scores": [
+          18,
+          18,
+          -3,
+          -11,
+          -1,
+          0,
+          72,
+          105,
+          15,
+          88,
+          -20,
+          -4,
+          43,
+          41,
+          19,
+          33,
+          -4,
+          3
+        ],
+        "selection_objective": "local league 3/1/0 points rate, then mean margin",
+        "selection_points": 34,
+        "selection_points_rate": 0.6296296296296297
+      }
+    },
+    {
+      "episode": 160,
+      "evidence": {
+        "conditions": [
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68003
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68003
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68006
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68006
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68009
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68009
+          }
+        ],
+        "mean": 27.055555555555557,
+        "scores": [
+          18,
+          18,
+          2,
+          -9,
+          -7,
+          0,
+          73,
+          118,
+          34,
+          46,
+          3,
+          16,
+          41,
+          41,
+          37,
+          24,
+          31,
+          1
+        ],
+        "selection_objective": "local league 3/1/0 points rate, then mean margin",
+        "selection_points": 46,
+        "selection_points_rate": 0.8518518518518519
+      }
+    },
+    {
+      "episode": 200,
+      "evidence": {
+        "conditions": [
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68003
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68003
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68006
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68006
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68009
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68009
+          }
+        ],
+        "mean": 17.27777777777778,
+        "scores": [
+          18,
+          15,
+          -6,
+          -11,
+          -4,
+          -18,
+          77,
+          102,
+          7,
+          41,
+          -16,
+          -22,
+          41,
+          42,
+          14,
+          34,
+          3,
+          -6
+        ],
+        "selection_objective": "local league 3/1/0 points rate, then mean margin",
+        "selection_points": 33,
+        "selection_points_rate": 0.6111111111111112
+      }
+    },
+    {
+      "episode": 240,
+      "evidence": {
+        "conditions": [
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68003
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68003
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68006
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68006
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68009
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68009
+          }
+        ],
+        "mean": 11.166666666666666,
+        "scores": [
+          18,
+          18,
+          -3,
+          -12,
+          5,
+          -2,
+          65,
+          56,
+          -5,
+          7,
+          -30,
+          -33,
+          41,
+          42,
+          5,
+          17,
+          20,
+          -8
+        ],
+        "selection_objective": "local league 3/1/0 points rate, then mean margin",
+        "selection_points": 33,
+        "selection_points_rate": 0.6111111111111112
+      }
+    },
+    {
+      "episode": 280,
+      "evidence": {
+        "conditions": [
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68003
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68003
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68006
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68006
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68009
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68009
+          }
+        ],
+        "mean": 14.555555555555555,
+        "scores": [
+          19,
+          18,
+          -6,
+          -3,
+          -6,
+          -7,
+          64,
+          65,
+          0,
+          55,
+          -36,
+          -14,
+          42,
+          42,
+          -4,
+          -1,
+          24,
+          10
+        ],
+        "selection_objective": "local league 3/1/0 points rate, then mean margin",
+        "selection_points": 28,
+        "selection_points_rate": 0.5185185185185185
+      }
+    },
+    {
+      "episode": 320,
+      "evidence": {
+        "conditions": [
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68003
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68003
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68006
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68006
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68009
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68009
+          }
+        ],
+        "mean": 7.333333333333333,
+        "scores": [
+          15,
+          18,
+          -7,
+          -13,
+          -12,
+          -5,
+          44,
+          61,
+          -26,
+          48,
+          -41,
+          -33,
+          42,
+          42,
+          9,
+          0,
+          -4,
+          -6
+        ],
+        "selection_objective": "local league 3/1/0 points rate, then mean margin",
+        "selection_points": 25,
+        "selection_points_rate": 0.46296296296296297
+      }
+    },
+    {
+      "episode": 360,
+      "evidence": {
+        "conditions": [
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68001
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68002
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68003
+          },
+          {
+            "layout": "defaultCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68003
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68004
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68005
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68006
+          },
+          {
+            "layout": "officeCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68006
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": true,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "baseline",
+            "red": false,
+            "seed": 68007
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": true,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_astar_v3",
+            "red": false,
+            "seed": 68008
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": true,
+            "seed": 68009
+          },
+          {
+            "layout": "mediumCapture",
+            "opponent": "aljaz_mdp_frontier_v4",
+            "red": false,
+            "seed": 68009
+          }
+        ],
+        "mean": 11.38888888888889,
+        "scores": [
+          19,
+          19,
+          -7,
+          -3,
+          -3,
+          -2,
+          48,
+          63,
+          -22,
+          13,
+          -17,
+          -19,
+          41,
+          41,
+          18,
+          13,
+          1,
+          2
+        ],
+        "selection_objective": "local league 3/1/0 points rate, then mean margin",
+        "selection_points": 33,
+        "selection_points_rate": 0.6111111111111112
+      }
+    }
+  ],
+  "weights": [
+    3.096418265282015,
+    12.176753232086845,
+    4.300757942328825,
+    27.972196203178683,
+    -5.477786345927908,
+    -6.402173399105255,
+    -0.015599198372138762,
+    0.08852809355442713,
+    8.643202302170701,
+    10.97219620317862,
+    -1.435367421495419,
+    -3.7363218252549686,
+    45.66265515369432,
+    -1.9593046204683477,
+    6.888637708225416,
+    1.0568796489567873,
+    -1.1320658495121856,
+    -11.139646887332152,
+    -2.3218684794472475
+  ]
+}
