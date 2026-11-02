@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>aljaz2 Pacman report</title>
+<style>
+:root { --bg: #fbfaf8; --fg: #1d1d1b; --muted: #6b6a66; --line: #e3e0da; --card: #ffffff;
+  --good: #dff1e3; --mid: #f6efd9; --bad: #f6dfdc; --kept: #2f7d4a; --rej: #a23b2e; --neu: #7a7468; }
+@media (prefers-color-scheme: dark) { :root { --bg: #171716; --fg: #ecebe7; --muted: #a29f97; --line: #34332f;
+  --card: #1f1f1d; --good: #1e3a27; --mid: #3a331d; --bad: #43231f; --kept: #7fd19a; --rej: #f09a8c; --neu: #b3ada2; } }
+body { background: var(--bg); color: var(--fg); font: 15px/1.5 -apple-system, "Segoe UI", sans-serif; margin: 0; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 26px; margin: 0 0 4px; } h2 { margin-top: 40px; border-bottom: 1px solid var(--line); }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; background: var(--card); }
+th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+table.res td { white-space: nowrap; } table.res td span { color: var(--muted); margin-left: 6px; font-size: 13px; }
+td.good { background: var(--good); } td.mid { background: var(--mid); } td.bad { background: var(--bad); }
+td.up { color: var(--kept); font-weight: 600; } td.down { color: var(--rej); font-weight: 600; }
+tr.grp td { font-weight: 600; color: var(--muted); background: transparent; }
+tr.all td { font-weight: 700; }
+table.steps td:first-child { width: 32px; color: var(--muted); }
+tr.kept td:last-child { color: var(--kept); } tr.rej td:last-child { color: var(--rej); }
+tr.neu td:last-child { color: var(--neu); }
+code { font-size: 13px; } .muted { color: var(--muted); }
+</style></head><body><main>
+<h1>aljaz2 Pacman agent &mdash; experiment report</h1>
+<p class="muted">Every number is from games under tournament limits (Python 3.8, <code>-q -c</code>), both colours.
+Cells: win % and average points per game (win 3, draw 1, loss 0).</p>
+<p><b>Where we are.</b> The final agent (<code>teams/aljaz2_v1</code>, commit f5f6ca7) wins 82% of holdout games (2.50 points per game) against all 13 opponents, up from 58% (1.89) for our first version v1a and ahead of Codex&#x27;s best generalist A-Star v27 at 72% (2.17). On the dev maps it wins 82% (2.49) against 54% (1.74) for v1a and 69% (2.07) for v27. Against 20 other Codex families it wins 85% (2.60) against 77% (2.32) for v27.</p><p><b>Paired over identical games</b> (same opponent, map and colour, holdout + dev): final minus v1a +0.66 PPG (se 0.043), final minus Codex v27 +0.38 (se 0.045), final minus v1t +0.33 (se 0.041), final minus v1p +0.32 (se 0.041). On the 20 other families final minus v27 +0.28 (se 0.042). The last change alone (step 63) is +0.13 (se 0.035) over the previous final on these games; against the three unseen teams it is +0.03 (se 0.10) on the holdout and +0.26 (se 0.15) on the dev maps.</p><p><b>What moved the numbers.</b> Staging near enemy food, capsule saving and the state-based helper role (v1a to v1p: paired +0.34 PPG, se 0.042). From v1t three changes were kept: the race-bank rule, the home-walking fix found on the holdout maps and the paired entry (steps 28-39). Then came the invader delay (step 55): the escape race used to treat every enemy as an interceptor that reacts at once, so the attacker waited on our side for 68% of its attack moves. An enemy that is invading keeps eating instead of turning back, so it no longer counts as a threat on its side; the attacker now waits 42% of the time. Confirmed on the wide pool (dev40 + holdout, 1400 games, paired +0.088, se 0.033) and on the 20 families (+0.20, se 0.040, 16 of 20 better; tactical UCT v9 52% to 80%, hierarchical v21 to 75%, staging UCT v21 to 93%). The last kept change (step 63): with two invaders the attacker no longer comes home to help. Both enemies are then on our side, so theirs is empty and our raid is the best use of the attacker; the helper still comes for invaders that carry 5 or more. Confirmed on the wide pool (1400 games, paired +0.14, se 0.032; v27 +0.25, v37 +0.17 / +0.39) and on the 20 families (+0.13, se 0.036, 13 of 20 better).</p><p><b>What did not work.</b> Waiting for the enemies to see us (sight range 5) helped alone but nothing on top of the invader delay. The invader delay has a cost: about 1 attacker death in 20 games, often carrying 15-20 food, when an invader turns back home in front of our banking attacker. Every fix tried (full threat for invaders near home, carrying, chased, or while we carry 8+; two other ways to evade) lowered deaths but also the points, because the caution costs more food than the deaths do.</p><p><b>Weak spots left.</b> On the holdout maps Route UCT v12, A-Star v26, Neural v28 and Expectimax v37 (72-73%) are the hardest, then A-Star v27 and Tactical UCT v7 (78%); Hybrid v42 rose from 60% to 80%. On the dev maps Neural v28 holds us to 65% and MDP v4 to 70%. Teams that send both agents and eat faster than our single raider gained from step 63: Staging UCT v21 93% to 82% among the families, and greedy food beat us once on the holdout and once on the dev maps (step 64 tests calling the attacker home only when they lead the food race). The 2,500 games of the final column had 0 time warnings, crashes or timeouts.</p>
+<h2>Results by version</h2>
+<h3>Holdout: 30 unseen random maps (RANDOM5001-5030), 60 games per opponent</h3>
+<div class="scroll"><table class="res"><tr><th>Opponent</th>
+<th>Codex v27</th>
+<th>v1a</th>
+<th>v1p</th>
+<th>v1t</th>
+<th>final</th>
+<th>final &minus; v1a<br><small>PPG</small></th>
+<th>final &minus; Codex v27<br><small>PPG</small></th>
+</tr>
+<tr class="grp"><td colspan="8">Simple teams</td></tr>
+<tr><td>Course baseline</td>
+<td class="good"><b>95%</b><span>2.85</span></td>
+<td class="good"><b>88%</b><span>2.77</span></td>
+<td class="good"><b>88%</b><span>2.77</span></td>
+<td class="good"><b>88%</b><span>2.77</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="up">+0.23</td>
+<td class="up">+0.15</td>
+</tr>
+<tr><td>Double defence (border campers)</td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="">+0.00</td>
+<td class="">+0.00</td>
+</tr>
+<tr><td>Greedy food eater</td>
+<td class="good"><b>93%</b><span>2.80</span></td>
+<td class="good"><b>75%</b><span>2.47</span></td>
+<td class="good"><b>80%</b><span>2.58</span></td>
+<td class="good"><b>80%</b><span>2.58</span></td>
+<td class="good"><b>98%</b><span>2.95</span></td>
+<td class="up">+0.48</td>
+<td class="up">+0.15</td>
+</tr>
+<tr class="grp"><td colspan="8">Hard teams (tuning pool)</td></tr>
+<tr><td>L2 (private)</td>
+<td class="bad"><b>40%</b><span>1.20</span></td>
+<td class="mid"><b>65%</b><span>2.20</span></td>
+<td class="good"><b>83%</b><span>2.62</span></td>
+<td class="good"><b>83%</b><span>2.62</span></td>
+<td class="good"><b>85%</b><span>2.60</span></td>
+<td class="up">+0.40</td>
+<td class="up">+1.40</td>
+</tr>
+<tr><td>Codex Expectimax v37</td>
+<td class="mid"><b>72%</b><span>2.17</span></td>
+<td class="bad"><b>52%</b><span>1.73</span></td>
+<td class="mid"><b>58%</b><span>2.03</span></td>
+<td class="mid"><b>67%</b><span>2.20</span></td>
+<td class="mid"><b>73%</b><span>2.25</span></td>
+<td class="up">+0.52</td>
+<td class="up">+0.08</td>
+</tr>
+<tr><td>Codex Hybrid v42</td>
+<td class="mid"><b>68%</b><span>2.07</span></td>
+<td class="bad"><b>52%</b><span>1.75</span></td>
+<td class="mid"><b>53%</b><span>1.85</span></td>
+<td class="bad"><b>47%</b><span>1.62</span></td>
+<td class="good"><b>80%</b><span>2.47</span></td>
+<td class="up">+0.72</td>
+<td class="up">+0.40</td>
+</tr>
+<tr><td>Codex Tactical UCT v7</td>
+<td class="good"><b>85%</b><span>2.57</span></td>
+<td class="mid"><b>58%</b><span>1.88</span></td>
+<td class="mid"><b>75%</b><span>2.32</span></td>
+<td class="mid"><b>62%</b><span>1.92</span></td>
+<td class="mid"><b>78%</b><span>2.38</span></td>
+<td class="up">+0.50</td>
+<td class="down">-0.18</td>
+</tr>
+<tr><td>Codex A-Star v27</td>
+<td class="na">-</td>
+<td class="bad"><b>40%</b><span>1.30</span></td>
+<td class="bad"><b>47%</b><span>1.45</span></td>
+<td class="bad"><b>47%</b><span>1.45</span></td>
+<td class="mid"><b>78%</b><span>2.35</span></td>
+<td class="up">+1.05</td>
+<td></td>
+</tr>
+<tr><td>Codex A-Star v26</td>
+<td class="bad"><b>57%</b><span>1.72</span></td>
+<td class="bad"><b>42%</b><span>1.28</span></td>
+<td class="bad"><b>58%</b><span>1.77</span></td>
+<td class="bad"><b>58%</b><span>1.77</span></td>
+<td class="mid"><b>73%</b><span>2.20</span></td>
+<td class="up">+0.92</td>
+<td class="up">+0.48</td>
+</tr>
+<tr><td>Codex MDP v4</td>
+<td class="mid"><b>68%</b><span>2.05</span></td>
+<td class="bad"><b>45%</b><span>1.62</span></td>
+<td class="mid"><b>60%</b><span>2.02</span></td>
+<td class="mid"><b>60%</b><span>2.02</span></td>
+<td class="mid"><b>75%</b><span>2.38</span></td>
+<td class="up">+0.77</td>
+<td class="up">+0.33</td>
+</tr>
+<tr class="grp"><td colspan="8">Unseen teams (never tuned against)</td></tr>
+<tr><td>Codex Minimax v3</td>
+<td class="mid"><b>63%</b><span>1.90</span></td>
+<td class="bad"><b>52%</b><span>1.77</span></td>
+<td class="mid"><b>53%</b><span>1.87</span></td>
+<td class="mid"><b>67%</b><span>2.20</span></td>
+<td class="good"><b>80%</b><span>2.50</span></td>
+<td class="up">+0.73</td>
+<td class="up">+0.60</td>
+</tr>
+<tr><td>Codex Neural v28</td>
+<td class="bad"><b>55%</b><span>1.70</span></td>
+<td class="bad"><b>45%</b><span>1.50</span></td>
+<td class="mid"><b>63%</b><span>2.03</span></td>
+<td class="mid"><b>67%</b><span>2.12</span></td>
+<td class="mid"><b>73%</b><span>2.22</span></td>
+<td class="up">+0.72</td>
+<td class="up">+0.52</td>
+</tr>
+<tr><td>Codex Route UCT v12</td>
+<td class="mid"><b>68%</b><span>2.07</span></td>
+<td class="bad"><b>43%</b><span>1.35</span></td>
+<td class="mid"><b>68%</b><span>2.10</span></td>
+<td class="mid"><b>63%</b><span>1.97</span></td>
+<td class="mid"><b>72%</b><span>2.17</span></td>
+<td class="up">+0.82</td>
+<td class="up">+0.10</td>
+</tr>
+<tr class="all"><td>All opponents</td><td class="mid"><b>72%</b><span>2.17</span></td><td class="mid"><b>58%</b><span>1.89</span></td><td class="mid"><b>68%</b><span>2.18</span></td><td class="mid"><b>68%</b><span>2.17</span></td><td class="good"><b>82%</b><span>2.50</span></td>
+<td class="up">+0.60</td>
+<td class="up">+0.32</td>
+</tr></table></div>
+<h3>Dev: 10 fixed maps + RANDOM1-10 (used for tuning), 40 games per opponent</h3>
+<div class="scroll"><table class="res"><tr><th>Opponent</th>
+<th>Codex v27</th>
+<th>v1a</th>
+<th>v1p</th>
+<th>v1t</th>
+<th>final</th>
+<th>final &minus; v1a<br><small>PPG</small></th>
+<th>final &minus; Codex v27<br><small>PPG</small></th>
+</tr>
+<tr class="grp"><td colspan="8">Simple teams</td></tr>
+<tr><td>Course baseline</td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="">+0.00</td>
+<td class="">+0.00</td>
+</tr>
+<tr><td>Double defence (border campers)</td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="">+0.00</td>
+<td class="">+0.00</td>
+</tr>
+<tr><td>Greedy food eater</td>
+<td class="good"><b>92%</b><span>2.77</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>98%</b><span>2.92</span></td>
+<td class="down">-0.08</td>
+<td class="up">+0.15</td>
+</tr>
+<tr class="grp"><td colspan="8">Hard teams (tuning pool)</td></tr>
+<tr><td>L2 (private)</td>
+<td class="bad"><b>50%</b><span>1.52</span></td>
+<td class="good"><b>78%</b><span>2.45</span></td>
+<td class="good"><b>82%</b><span>2.60</span></td>
+<td class="good"><b>82%</b><span>2.60</span></td>
+<td class="good"><b>90%</b><span>2.70</span></td>
+<td class="up">+0.25</td>
+<td class="up">+1.18</td>
+</tr>
+<tr><td>Codex Expectimax v37</td>
+<td class="bad"><b>48%</b><span>1.45</span></td>
+<td class="bad"><b>28%</b><span>1.05</span></td>
+<td class="mid"><b>58%</b><span>1.93</span></td>
+<td class="mid"><b>60%</b><span>2.02</span></td>
+<td class="good"><b>80%</b><span>2.50</span></td>
+<td class="up">+1.45</td>
+<td class="up">+1.05</td>
+</tr>
+<tr><td>Codex Hybrid v42</td>
+<td class="mid"><b>72%</b><span>2.17</span></td>
+<td class="bad"><b>42%</b><span>1.52</span></td>
+<td class="bad"><b>45%</b><span>1.52</span></td>
+<td class="bad"><b>50%</b><span>1.70</span></td>
+<td class="good"><b>80%</b><span>2.42</span></td>
+<td class="up">+0.90</td>
+<td class="up">+0.25</td>
+</tr>
+<tr><td>Codex Tactical UCT v7</td>
+<td class="mid"><b>72%</b><span>2.20</span></td>
+<td class="bad"><b>30%</b><span>1.00</span></td>
+<td class="mid"><b>60%</b><span>1.90</span></td>
+<td class="mid"><b>65%</b><span>2.00</span></td>
+<td class="good"><b>88%</b><span>2.62</span></td>
+<td class="up">+1.62</td>
+<td class="up">+0.42</td>
+</tr>
+<tr><td>Codex A-Star v27</td>
+<td class="na">-</td>
+<td class="bad"><b>38%</b><span>1.20</span></td>
+<td class="bad"><b>55%</b><span>1.73</span></td>
+<td class="bad"><b>52%</b><span>1.65</span></td>
+<td class="mid"><b>72%</b><span>2.20</span></td>
+<td class="up">+1.00</td>
+<td></td>
+</tr>
+<tr><td>Codex A-Star v26</td>
+<td class="bad"><b>40%</b><span>1.23</span></td>
+<td class="bad"><b>30%</b><span>0.95</span></td>
+<td class="mid"><b>58%</b><span>1.88</span></td>
+<td class="mid"><b>58%</b><span>1.88</span></td>
+<td class="mid"><b>72%</b><span>2.27</span></td>
+<td class="up">+1.32</td>
+<td class="up">+1.05</td>
+</tr>
+<tr><td>Codex MDP v4</td>
+<td class="mid"><b>60%</b><span>1.82</span></td>
+<td class="bad"><b>40%</b><span>1.38</span></td>
+<td class="mid"><b>58%</b><span>1.80</span></td>
+<td class="bad"><b>55%</b><span>1.75</span></td>
+<td class="mid"><b>70%</b><span>2.17</span></td>
+<td class="up">+0.80</td>
+<td class="up">+0.35</td>
+</tr>
+<tr class="grp"><td colspan="8">Unseen teams (never tuned against)</td></tr>
+<tr><td>Codex Minimax v3</td>
+<td class="mid"><b>70%</b><span>2.10</span></td>
+<td class="bad"><b>40%</b><span>1.43</span></td>
+<td class="mid"><b>55%</b><span>1.85</span></td>
+<td class="mid"><b>55%</b><span>1.88</span></td>
+<td class="mid"><b>72%</b><span>2.33</span></td>
+<td class="up">+0.90</td>
+<td class="up">+0.23</td>
+</tr>
+<tr><td>Codex Neural v28</td>
+<td class="bad"><b>52%</b><span>1.57</span></td>
+<td class="bad"><b>45%</b><span>1.52</span></td>
+<td class="mid"><b>55%</b><span>1.82</span></td>
+<td class="mid"><b>55%</b><span>1.82</span></td>
+<td class="mid"><b>65%</b><span>1.98</span></td>
+<td class="up">+0.45</td>
+<td class="up">+0.40</td>
+</tr>
+<tr><td>Codex Route UCT v12</td>
+<td class="mid"><b>65%</b><span>1.98</span></td>
+<td class="bad"><b>35%</b><span>1.12</span></td>
+<td class="mid"><b>62%</b><span>1.93</span></td>
+<td class="bad"><b>50%</b><span>1.55</span></td>
+<td class="mid"><b>72%</b><span>2.20</span></td>
+<td class="up">+1.08</td>
+<td class="up">+0.23</td>
+</tr>
+<tr class="all"><td>All opponents</td><td class="mid"><b>69%</b><span>2.07</span></td><td class="bad"><b>54%</b><span>1.74</span></td><td class="mid"><b>68%</b><span>2.15</span></td><td class="mid"><b>68%</b><span>2.14</span></td><td class="good"><b>82%</b><span>2.49</span></td>
+<td class="up">+0.75</td>
+<td class="up">+0.42</td>
+</tr></table></div>
+<h3>Other Codex families: 20 teams never used in tuning (newest version of each family), holdout maps, 60 games per opponent</h3>
+<div class="scroll"><table class="res"><tr><th>Opponent</th>
+<th>Codex v27</th>
+<th>final</th>
+<th>final &minus; Codex v27<br><small>PPG</small></th>
+</tr>
+<tr class="grp"><td colspan="4">Other teams (never tuned against)</td></tr>
+<tr><td>Codex adaptive v41 robust return b200</td>
+<td class="mid"><b>70%</b><span>2.12</span></td>
+<td class="mid"><b>75%</b><span>2.33</span></td>
+<td class="up">+0.22</td>
+</tr>
+<tr><td>Codex beam v18 progress</td>
+<td class="good"><b>90%</b><span>2.72</span></td>
+<td class="good"><b>88%</b><span>2.72</span></td>
+<td class="">+0.00</td>
+</tr>
+<tr><td>Codex belief mcts particle v3</td>
+<td class="good"><b>98%</b><span>2.95</span></td>
+<td class="good"><b>98%</b><span>2.95</span></td>
+<td class="">+0.00</td>
+</tr>
+<tr><td>Codex cooperative v3</td>
+<td class="good"><b>85%</b><span>2.57</span></td>
+<td class="good"><b>92%</b><span>2.78</span></td>
+<td class="up">+0.22</td>
+</tr>
+<tr><td>Codex evolution v30 pursuit</td>
+<td class="mid"><b>68%</b><span>2.08</span></td>
+<td class="good"><b>85%</b><span>2.60</span></td>
+<td class="up">+0.52</td>
+</tr>
+<tr><td>Codex expectimax v35 pursuit b200</td>
+<td class="mid"><b>70%</b><span>2.12</span></td>
+<td class="good"><b>80%</b><span>2.48</span></td>
+<td class="up">+0.37</td>
+</tr>
+<tr><td>Codex fsm v21 pursuit</td>
+<td class="good"><b>82%</b><span>2.45</span></td>
+<td class="good"><b>83%</b><span>2.52</span></td>
+<td class="up">+0.07</td>
+</tr>
+<tr><td>Codex hierarchical v21 pursuit</td>
+<td class="bad"><b>53%</b><span>1.60</span></td>
+<td class="good"><b>83%</b><span>2.55</span></td>
+<td class="up">+0.95</td>
+</tr>
+<tr><td>Codex hybrid particle v43 support</td>
+<td class="mid"><b>63%</b><span>1.95</span></td>
+<td class="good"><b>78%</b><span>2.43</span></td>
+<td class="up">+0.48</td>
+</tr>
+<tr><td>Codex mdp frontier v6 safe return</td>
+<td class="mid"><b>68%</b><span>2.05</span></td>
+<td class="mid"><b>75%</b><span>2.38</span></td>
+<td class="up">+0.33</td>
+</tr>
+<tr><td>Codex minimax v28 pursuit b200</td>
+<td class="mid"><b>63%</b><span>1.92</span></td>
+<td class="good"><b>80%</b><span>2.50</span></td>
+<td class="up">+0.58</td>
+</tr>
+<tr><td>Codex observation mcts v3</td>
+<td class="good"><b>95%</b><span>2.87</span></td>
+<td class="good"><b>95%</b><span>2.87</span></td>
+<td class="">+0.00</td>
+</tr>
+<tr><td>Codex qlearning v28 pursuit</td>
+<td class="mid"><b>67%</b><span>2.03</span></td>
+<td class="mid"><b>75%</b><span>2.28</span></td>
+<td class="up">+0.25</td>
+</tr>
+<tr><td>Codex route belief mcts particle v12 pursuit</td>
+<td class="mid"><b>75%</b><span>2.27</span></td>
+<td class="good"><b>83%</b><span>2.50</span></td>
+<td class="up">+0.23</td>
+</tr>
+<tr><td>Codex route uct v17 pursuit b200</td>
+<td class="mid"><b>72%</b><span>2.17</span></td>
+<td class="good"><b>85%</b><span>2.55</span></td>
+<td class="up">+0.38</td>
+</tr>
+<tr><td>Codex staging uct v21 home b200</td>
+<td class="mid"><b>75%</b><span>2.25</span></td>
+<td class="good"><b>82%</b><span>2.47</span></td>
+<td class="up">+0.22</td>
+</tr>
+<tr><td>Codex tactical uct v9 turn guard b200</td>
+<td class="mid"><b>67%</b><span>2.05</span></td>
+<td class="mid"><b>78%</b><span>2.37</span></td>
+<td class="up">+0.32</td>
+</tr>
+<tr><td>Codex uct horizon v4</td>
+<td class="good"><b>98%</b><span>2.97</span></td>
+<td class="good"><b>93%</b><span>2.80</span></td>
+<td class="down">-0.17</td>
+</tr>
+<tr><td>control double offense</td>
+<td class="mid"><b>75%</b><span>2.25</span></td>
+<td class="good"><b>95%</b><span>2.85</span></td>
+<td class="up">+0.60</td>
+</tr>
+<tr><td>control random</td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="good"><b>100%</b><span>3.00</span></td>
+<td class="">+0.00</td>
+</tr>
+<tr class="all"><td>All opponents</td><td class="mid"><b>77%</b><span>2.32</span></td><td class="good"><b>85%</b><span>2.60</span></td>
+<td class="up">+0.28</td>
+</tr></table></div>
+<h2>Notes</h2><ul><li>Versions: <b>Codex v27</b> = Codex A-Star v27 full state (Codex&#x27;s recommended generalist). <b>v1a</b> = our first escape-race team (step 1). <b>v1p</b> = v1a plus the kept changes of steps 3-23 (scared attack, helper role, staging near enemy food, capsule saving). <b>v1t</b> = v1p plus off-by-default experiment knobs (interception, contact search, capsule defence), so it plays like v1p. <b>final</b> = v1t plus the kept changes of steps 28-39 (race-bank rule, home-walking fix, paired entry), then step 40 removed every disabled knob; then the invader delay of step 55 (step 60 removed the rejected risk-model knobs) and no help against two invaders (step 63, knob removed).</li><li>Each column plays the same 13 opponents on the same maps in both colours. Cells: win % (bold) and average points per game (win 3, draw 1, loss 0). Green &gt;= 2.4 PPG, yellow &gt;= 1.8, red below. The difference columns are PPG differences; Codex v27 has no row against itself. Codex v27&#x27;s All opponents cell covers 12 opponents.</li><li>Acceptance rule for every change: paired dPPG over dev + holdout together above 0 by at least 1.5 standard errors, holdout not worse, simple teams about 100%.</li><li>Repeat runs of the same code gave identical games against the course baseline, double defence, greedy and L2, and nearly so against A-Star v27 (36 of 40). A-Star v26, MDP v4, Hybrid v42, Expectimax v37, Tactical UCT v7, Route UCT v12 and Minimax v3 use time-bounded search and answer the same position differently between runs (checked again on 2026-10-30), so single cells against them move by 10 or more points of win % from noise alone; Neural v28 was not checked.</li><li>Unseen teams (Minimax v3, Neural v28, Route UCT v12) were never used for tuning; they check that changes generalise.</li><li>L2 is a private reference team kept local only; it was used for ideas and testing, no code was copied.</li><li>All games: course Python 3.8.20, tournament limits (<code>-q -c</code>: 1 s per move with 3 warnings, 3 s single move, 15 s setup), no output from the agent.</li><li>The final column reuses the confirmation games of step 63 (same code, identical moves on replay) plus new games against the three unseen teams with the committed code (300 games, identical on replay).</li></ul>
+<h2>Every step</h2>
+<p class="muted">From experiments/LOG.md. Green = kept, red = rejected, grey = neutral / kept off.</p>
+<div class="scroll"><table class="steps"><tr><th>#</th><th>Change</th><th>Result</th><th>Verdict and reason</th></tr>
+<tr class="neu"><td>1</td><td>v1a: escape-race attacker, region defender, shadow</td><td>L2 63W/10D/7L (80 g); v27 40%, hybrid 26%, MDP4 45%</td><td>L2 beaten, Codex teams not</td></tr>
+<tr class="neu"><td>2</td><td>slack 3 (bold empty pacman), slack 5, pac_delay 4</td><td>slack: deaths 0.2-&gt;2.5/g, food returned DOWN; 61% vs strict 70%</td><td>strict safety (slack 0) kept</td></tr>
+<tr class="kept"><td>3</td><td>scared ghost -&gt; attack</td><td>73% vs 68% (v27 60 vs 48)</td><td>kept</td></tr>
+<tr class="neu"><td>4</td><td>capsule guard in defender cost</td><td>73 vs 74</td><td>neutral, kept (cheap)</td></tr>
+<tr class="rej"><td>5</td><td>focus fire (both hunt one invader)</td><td>65 vs 73</td><td>rejected</td></tr>
+<tr class="neu"><td>6</td><td>bank_cargo 6/10/20</td><td>68 / 73 / 75</td><td>20 kept</td></tr>
+<tr class="kept"><td>7</td><td>stage hysteresis off</td><td>71 vs 73</td><td>kept on</td></tr>
+<tr class="neu"><td>8</td><td>role flap fix (sticky helper)</td><td>more kills, less offence, 70-74</td><td>replaced by 9</td></tr>
+<tr class="kept"><td>9</td><td>helper role from attack opportunity (state based)</td><td>dev40 69% (v27 55, L2 66)</td><td>kept (principled)</td></tr>
+<tr class="neu"><td>10</td><td>defender raids when enemies far (raid_r 3/6/10)</td><td>69 / 69 / 69</td><td>neutral, off</td></tr>
+<tr class="neu"><td>11</td><td>graded exit-cut hunting cost</td><td>69-70</td><td>neutral</td></tr>
+<tr class="rej"><td>12</td><td>alpha-beta hunt search r5/r8/r12 (clean rerun)</td><td>67 / 65 / 66 vs 70; v26/v27 -10 pts</td><td>rejected (off)</td></tr>
+<tr class="neu"><td>13</td><td>adaptive freeze slack (+1 per 4/8/15 frozen moves)</td><td>69 / 71 / 72 (L2 72)</td><td>15 promising</td></tr>
+<tr class="rej"><td>14</td><td>goalkeeper hunting (deny exits when loaded) margin 1/2</td><td>68 / 65</td><td>rejected</td></tr>
+<tr class="neu"><td>15</td><td>passive-ghost model (+4 delay for non-chasers)</td><td>72 (v26 62, v27 61)</td><td>promising</td></tr>
+<tr class="neu"><td>16</td><td>two invaders no longer force the helper (help_two 0)</td><td>72 (MDP 58)</td><td>promising</td></tr>
+<tr class="neu"><td>17</td><td>passive + freeze15</td><td>72</td><td>combine with 16 next</td></tr>
+<tr class="kept"><td>18</td><td>staging near enemy food (stage_mode 2)</td><td>74 vs 70 (v26 58, MDP 60, L2 74)</td><td>kept, default</td></tr>
+<tr class="rej"><td>19</td><td>shadow only food-front entries + 2-defender marking</td><td>70 (controls drop to 82-90)</td><td>rejected</td></tr>
+<tr class="neu"><td>20</td><td>forced roles AA / DD (calibration)</td><td>31% / 45% vs adaptive 70%</td><td>strategy layer is decisive</td></tr>
+<tr class="neu"><td>21</td><td>accept pool (adds self v1g): combo = passive4 + help_two 0 + freeze15</td><td>61 vs 59; MDP +12, L2 +4, self +8, v26 -13</td><td>+1 SE, see exp13</td></tr>
+<tr class="neu"><td>22</td><td>self-play vs v1g</td><td>72% draws</td><td>two strict-safe teams freeze: draw-breaking matters</td></tr>
+<tr class="neu"><td>23</td><td>on stage2 base (accept pool): combo / save_caps / late_slack / all</td><td>61 / 63 / 61 / 61 vs base 62</td><td>all noise; save_caps kept (logical fix)</td></tr>
+<tr class="neu"><td>24</td><td>predicted-path interception (hunt_mode 4), cut at cargo 6 / 3</td><td>64 / 63 vs base 64</td><td>neutral, off</td></tr>
+<tr class="rej"><td>25</td><td>risk only while empty: slack 1 / 2 / 3 at cargo 0, (2,1)</td><td>61 / 58 / 58 / 57 vs base 64</td><td>rejected: strict safety stays; the weak link is evasion once inside unsafe ground</td></tr>
+<tr class="rej"><td>26</td><td>attacker contact alpha-beta (contact_search) r6 / r4 / death 60</td><td>61 / 64 / 63 vs base 64; control_double 91-94 vs 100 (7 draws)</td><td>bug: a positive escape margin outbid banking, so a loaded attacker (13-20 food) stayed inside ~250 moves; fixed in 27</td></tr>
+<tr class="neu"><td>27</td><td>contact_search fixed (only escape deficit counts; planner move kept unless beaten by tol) tol 0 / 1 / 3, r4</td><td>paired vs base over the same 480 games: dPPG -0.11 / -0.01 / -0.00 / +0.02 (se 0.02-0.05); control_double back to 99-100%</td><td>neutral: off (contact=0). Tactical lookahead does not add over the exact escape field</td></tr>
+<tr class="neu"><td>28</td><td>capsule defence: cap_pull 3 (graded pull to a capsule the invader wins), shadow_caps (shadow covers capsule races), help_two 0, all</td><td>paired dPPG +0.03 / -0.01 / +0.01 / +0.02 (se 0.01-0.04)</td><td>neutral, all off. Source game (RANDOM2 vs v27): both invaders camp at our capsule ~35 moves, our two ghosts cannot close, capsule eaten; changing these knobs rarely changes outcomes</td></tr>
+<tr class="neu"><td>29</td><td>escape-aware food denial, wide pool (800 g): deny_w 8 (hunt values food the invader can take and still escape), shadow_deny 1 (shadow cell minimises that set), both</td><td>paired dPPG +0.018 / +0.004 / +0.035 (se 0.035); 0 warnings, max 8.8 s agent time per game</td><td>neutral, off. Per opponent the changes trade (MDP4 +0.23, v37 -0.17): denial alone does not stop v27&#x27;s deep raids</td></tr>
+<tr class="rej"><td>30</td><td>draw-breaking: freeze slack only while not ahead (freeze_tied) step 15 / 8 / 15 + late_slack 2, wide pool</td><td>paired dPPG -0.076 / -0.083 / -0.080 (se 0.04); v26 -0.24..-0.44, no gain vs L2</td><td>rejected: any extra risk for an empty attacker loses more than the draws it breaks</td></tr>
+<tr class="rej"><td>31</td><td>idle attacker helps against farther invaders: help_near 20 / 99 / 99 + help_two 0 (default 12)</td><td>paired dPPG -0.021 / -0.041 / -0.018 (se 0.04); v26 -6..-8 pts win%</td><td>rejected: walking far to help costs the next entry; 12 kept</td></tr>
+<tr class="neu"><td>32</td><td>passive-ghost model retest on wide pool: passive_delay 2 / 4 / 4 with passive_p 0.2</td><td>paired dPPG +0.011 / +0.029 / -0.014 (se 0.03); pas4: UCT7 +12 pts win%, v37 -10</td><td>neutral, off. Since exp 26 every knob trades opponents against each other: the architecture is on a plateau</td></tr>
+<tr class="kept"><td>33</td><td>race-bank rule (v1x) vs base, wide pool</td><td>paired dPPG -0.004 (se 0.028)</td><td>kept (a pure win condition)</td></tr>
+<tr class="rej"><td>34</td><td>holdout hold30 x wide pool (600 g), v1x</td><td>70% overall; baseline 88%, greedy 80% (all non-wins 0-0, nobody moves)</td><td>bug found, see below</td></tr>
+<tr class="kept"><td>35</td><td>walk fix (v1z): home-only distances for home walking and staging, wide pool dev40</td><td>paired dPPG +0.043 (se 0.036) vs v1x</td><td>kept (bug fix)</td></tr>
+<tr class="neu"><td>36</td><td>opponent model: habit_w 4 (shadow discounts entries the enemy never used), two_opp 5 (two invaders pull the attacker only while it has &lt; 5 safe food)</td><td>paired dPPG -0.029 (se 0.039) / +0.022 (se 0.035); habit4 v27 -6 pts win%</td><td>neutral, both off</td></tr>
+<tr class="kept"><td>37</td><td>paired entry: after 20 frozen attacker moves with no invader the defender stages too and banks at cargo 3; pair_r 6 (entry near its guard post) / 99 (any entry), dev40 + hold30 (1400 g)</td><td>pooled paired dPPG +0.044 / +0.056 (se 0.037); holdout alone +0.072 / +0.130 (se 0.057); holdout greedy 83 -&gt; 98%, baseline 88 -&gt; 100%, L2 dev 72 -&gt; 89%</td><td>pa20 r99 enabled (1.5 SE, holdout better). Breaks the 4-agent border standoff</td></tr>
+<tr class="neu"><td>38</td><td>paired entry refinements on v2a: pair_quiet 40 (only after 40 of our moves without any invader), pair_after 10</td><td>pooled paired dPPG +0.020 (se 0.029) / -0.032 (se 0.032); a10 v37 dev 65 -&gt; 55%</td><td>both off: q40 noise, earlier pairing leaves the post too often</td></tr>
+<tr class="rej"><td>39</td><td>lurk raid: both enemies inside for 20 / 40 of our moves without eating -&gt; our attacker raids their empty side, banking at cargo 3 (source: 70+ draws where both enemies sit just inside our border all game)</td><td>pooled paired dPPG -0.024 (se 0.025) / +0.003 (se 0.022); holdout v37 73 -&gt; 52 / 63%</td><td>rejected: the lurkers are pacman defenders one step from home, so the raider rarely finds safe food, and the lone guard leaks</td></tr>
+<tr class="kept"><td>40</td><td>cleanup: removed every disabled knob (contact and hunt search, interception, goalkeeper, food denial, freeze/late slack, passive model, opponent habits, capsule pull, raids, focus, lurk, pair_quiet / pair_r); 1166 -&gt; 645 lines</td><td>identical move strings vs the committed version: baseline, double defence, greedy, L2, v26, v27, MDP4 140/140 games; v37 / UCT7 / hybrid differ between two runs of the same code too (time-bound)</td><td>kept: final candidate</td></tr>
+<tr class="neu"><td>41</td><td>report: Codex v27, v1a, v1p, v1t, final vs 13 opponents (wide + unseen), hold30 + dev20 (6,500 g)</td><td>final holdout 77% / 2.37 PPG, dev 71% / 2.20; paired final - v27 +0.21 (se 0.05), final - v1a +0.47 (se 0.045), final - v1p +0.13 (se 0.04); 0 warnings</td><td>report in experiments/report.html. Weak spot: Route UCT v12 on dev maps 38% (v1p 62%), holdout 78%</td></tr>
+<tr class="neu"><td>42</td><td>Route UCT v12 dev check: final and v1p vs Route UCT v12 on dev20, seeds 2 + 3 (80 g each)</td><td>final 56% / 1.80 PPG, v1p 56% / 1.75; one map ranges -38..+33 between seeds</td><td>the report cell (38% vs 62%) was noise; no Route-UCT-specific weakness</td></tr>
+<tr class="neu"><td>43</td><td>endgame roles (thresholds now params): end_behind 100 / end_ahead 100 / end_tied 60 / end_behind 200, dev40 + hold30 (1400 g each)</td><td>pooled paired dPPG -0.010 (se 0.024) / -0.017 (se 0.026) / -0.027 (se 0.023) / -0.041 (se 0.028); holdout +0.010 / -0.005 / -0.058 / -0.065; 0 warnings</td><td>all rejected: defaults 50 / 40 / off stay. Attacking for a draw risks a loss (0) more often than it wins (3); attacking earlier when behind leaks more than it scores</td></tr>
+<tr class="neu"><td>44</td><td>leak analysis, final vs every hard opponent (report games, wins vs losses): food the opponent returns by situation</td><td>during our scared time (after their capsule) losses 7-12 food/g vs wins 1-7 for all 9 hard teams (v27 11.8 vs 6.4, L2 11.0 vs 0.9, UCT7 10.7 vs 6.4, Route UCT 10.7 vs 7.1); both raiding at once losses 4-8 vs wins 2-3 (v27, hybrid, v26, neural, route UCT); they eat our capsule more often in losses (~1.0 vs ~0.7 windows/g) and still carry 3-8 food when the window ends</td><td>next: scared response (scared_attack 4 / 15 / 25 / 40) and capsule guard (cap_guard 0 / 1000)</td></tr>
+<tr class="neu"><td>45</td><td>one-parameter screen, 20 variants on dev20 vs the wide pool (400 g each): shadow_depth 2/6, exit_w 5/20, exit_carry_w 3/12, cap_guard 0/1000, help_cargo 3/8, stage_hold 4/16, stage_food_w 1/6, bank_near 1/6, scared_attack 4/15, pair_cargo 2/5</td><td>paired dPPG vs base: best help_cargo 8 +0.050 (se 0.048), exit_carry_w 3 +0.035, cap_guard 0 +0.035, scared_attack 4 +0.035, shadow_depth 2 +0.033, pair_cargo 5 +0.022; stage_food_w 1 -0.125 (z -2.2) and 6 -0.275 (z -4.2), help_cargo 3 -0.068, stage_hold 4 -0.072, scared_attack 15 -0.065; 0 warnings</td><td>screen only: no variant beats noise (20 tries, best z 1.0); stage_food_w 3 is clearly right. help_cargo 8 and a combination of the four best go to a confirmation run on fresh maps</td></tr>
+<tr class="neu"><td>46</td><td>screen follow-ups: scared_attack 25 / 40 on dev20 (scared ghosts stay home); confirmation of help_cargo 8 on fresh maps (RANDOM11-30 + hold30) and of the four best together (help_cargo 8, exit_carry_w 3, cap_guard 0, shadow_depth 2) on dev40 + hold30</td><td>scared_attack 25 -0.122 (z -2.2), 40 -0.100 (z -1.8); help_cargo 8 fresh dev +0.025 (se 0.045), holdout -0.020 (se 0.043), pooled dev40 + hold30 +0.013 (se 0.026); combination dev40 +0.000 (se 0.037), holdout -0.072 (se 0.045), pooled -0.031 (se 0.028); 0 warnings</td><td>all rejected: the screen gains were noise. Scared ghosts that stay home cost more than they save, so attacking while scared stays (8). The current parameters sit near their optimum; the scared-time leak needs a behaviour change, not a knob</td></tr>
+<tr class="rej"><td>47</td><td>scared return by home distance (<code>scared_ret</code>): a scared attacker turns back once scared &lt;= scared_attack + scared_ret * steps from home, to be home when the scare ends (source: RANDOM5009 vs v27, both of ours deep with 14 food when the scare ended, 34 moves home while the invaders banked 16). sr1, sr1 + scared_attack 4, sr2 on dev20 (400 g each)</td><td>paired dPPG -0.128 (se 0.049) / -0.058 (se 0.045) / -0.080 (se 0.045); 0 warnings</td><td>rejected, off: like scared_attack 25 / 40, any time taken from the scared raid costs more than the late defence wins back. Our own capsule windows are already productive (7-9 food banked per window, wins and losses alike)</td></tr>
+<tr class="rej"><td>48</td><td>focus fire re-test on the current agent (<code>focus</code>): with two invaders both defenders squeeze the same one (1 = target chosen each ply, 2 = kept until it is caught or leaves); source: RANDOM5009 vs v27, 260 moves of one-on-one hunting without a catch. dev20 (400 g each)</td><td>paired dPPG -0.070 (se 0.062) / -0.125 (se 0.064); 0 warnings</td><td>rejected, off (as in step 5): the free invader eats more than the focused one is caught for</td></tr>
+<tr class="neu"><td>49</td><td>generalisation check: final and Codex v27 vs 20 never-used Codex teams (newest of each family: adaptive, beam, belief MCTS, cooperative, evolution, expectimax v35, FSM, hierarchical, hybrid particle, MDP v6, minimax v28, Q-learning, route belief MCTS, route UCT v17, staging UCT, tactical UCT v9, observation MCTS, UCT horizon, double offense, random), hold30 (1200 g each)</td><td>final 73% / 2.27 PPG, v27 77% / 2.32; paired -0.049 (se 0.047); 0 warnings. Weakest: tactical UCT v9 52%. v27 is ahead on mid-strength teams (observation MCTS 95 vs 80%, UCT horizon 98 vs 87%, beam 90 vs 82%): we are pacman 95-125 moves a game vs their 240-260, die half as often, bank 16-20 food vs 24-26; our attacker stages 35-45% of its moves</td><td>our caution is tuned to strong teams; more aggressive variants are screened against these families next</td></tr>
+<tr class="rej"><td>50</td><td>aggression vs mid-strength teams (from step 49): dev20 vs 10 never-used families (tactical UCT v9, expectimax v35, MDP v6, Q-learning, FSM, cooperative, observation MCTS, beam, UCT horizon, route UCT v17), 400 g each: slack 1, slack 2/1/0 (risk only with little cargo), pair_after 10, no defensive help (help_two 0, idle_help 0); then pair_after 10 + no help together on dev20 and fresh maps RANDOM11-30</td><td>paired dPPG -0.203 (z -2.6) / -0.018 / +0.070 (se 0.072) / +0.065 (se 0.074); together dev20 +0.030, fresh +0.030, pooled +0.030 (se 0.052); 0 warnings</td><td>rejected, all off: riskier escapes lose more than they win even against mid-strength teams, and the two small gains do not add up. The gap to v27 on these teams is not a parameter setting</td></tr>
+<tr class="neu"><td>51</td><td>cleanup: removed the disabled knobs from steps 43, 47 and 48 (end_tied, scared_ret, focus)</td><td>200 games vs baseline, double defence, greedy, v27, v26 on dev20: moves identical 200/200; 0 warnings</td><td>done, behaviour unchanged</td></tr>
+<tr class="neu"><td>52</td><td>analysis: weakest unseen team, tactical UCT v9 (final 52% win), final vs v27 on the same 60 hold30 games</td><td>defence: they bank 15.2 food a game against us vs 19.6 against v27; offence: we bank 17.5 vs v27 23.8, pacman 108 vs 240 moves a game, 0.6 vs 1.1 deaths</td><td>the gap is attack volume, not defence. Not an information problem: the agent reads the full state, so enemy positions are exact; the escape race (slack 0) is what keeps the attacker out, and loosening it (step 50) loses more. Closing it needs a different risk model (e.g. what the guarding ghost will actually do), not a parameter</td></tr>
+<tr class="neu"><td>53</td><td>diagnosis of step 52 (diagnostic copy, hold30 vs the hard teams): what the attacker does in its attack role</td><td>it stages (waits on our side) in 68% of its attack-role moves; during staging both enemies are home ghosts 78% of the time and the nearest one is more than 10 steps away 71% of the time</td><td>the risk model treats every enemy as an interceptor that reacts at once, which only full-state teams (v27, v37) can. Next: model what the enemy will actually do</td></tr>
+<tr class="neu"><td>54</td><td>new risk model as params (commit 1ddf8b2, off): <code>blind</code> (enemies react only once we are within SIGHT 5 of one of them, delay capped), <code>blind_food</code> (eating gives us away), <code>pac_delay</code> (extra threat time for enemies that are invading); dev20 vs the 10 mid-strength families of step 50, 400 g each</td><td>paired dPPG: blind 3 +0.072, blind 6 +0.180 (z 2.6), blind 6 + food +0.105, blind 10 +0.130; pac_delay 5 +0.147 (z 2.2), 10 +0.310 (z 4.3), 20 +0.250 (z 3.6), 99 +0.328 (z 4.5); blind 6 + pd 5 +0.200, blind 10 + pd 5 +0.265, blind 6 + pd 10 +0.142; 0 warnings</td><td>screen: pac_delay 99 best (an invader keeps eating, so it is not a ghost in our way); blind adds nothing on top. Confirmed next on the wide pool</td></tr>
+<tr class="kept"><td>55</td><td>confirm pac_delay 99: wide pool dev40 + hold30 (1400 g, paired vs the current default) and the 20 new families on hold30 (1200 g, vs the final column)</td><td>dev40 +0.079 (se 0.043), holdout +0.100 (se 0.052), pooled +0.088 (se 0.033, z 2.6; 22 dev games hit by a machine stall replayed, step 61); per team (dev40 / holdout): MDP v4 +0.48 / +0.48, v27 +0.19 / +0.43, tactical UCT v7 +0.25 / +0.13, v42 +0.23 / 0.00, v26 +0.05 / +0.02, L2 -0.06 / +0.07, v37 0.00 / -0.18; simple teams 100%; families +0.198 (se 0.040, z 4.9), 16 of 20 better, now +0.148 (se 0.045) ahead of Codex v27 on them; 0 warnings</td><td>kept, enabled (commit c0e7098): passes the rule on dev + holdout, holdout better, families clearly better</td></tr>
+<tr class="neu"><td>56</td><td>analysis: attacker deaths with pac_delay 99 (replay of the recorded wide-pool games, no new games)</td><td>pacman deaths 6 -&gt; 73 per 1400 g, food lost at death 45 -&gt; 692; about 90% are kills by an enemy that was an invader within the last 20 rounds: it turns back, crosses home in front of our banking attacker (often 15-20 food) and leaves no safe way home</td><td>the gain is net of a large new leak. Next: count an invader as a threat again when it is likely to turn back (near its home, carrying, chased by our ghost) or when we carry a lot</td></tr>
+<tr class="rej"><td>57</td><td>returning-invader exceptions to pac_delay 99 (commit 597884b, off): full threat for invaders within 3 steps of home (<code>pd_depth</code>), carrying 3+ (<code>pd_carry</code>), within 6 of our ghost (<code>pd_chase</code>), or while we carry 8+ (<code>pd_mine</code>); wide pool dev20, 400 g each, paired vs pac_delay 99</td><td>dPPG -0.122 (z -2.1) / -0.152 (z -2.2) / -0.095 (z -1.6) / -0.060 (z -1.0); attacker deaths drop (e.g. food lost at death 67 / 29 / 162 / 67 vs about 180 per 400 g for pac_delay 99)</td><td>rejected, all off: the caution costs more food than the deaths it saves. Replay of the deaths shows 73 of 80 come after the agent has fallen back to <code>evade</code> (no safe way home left), most after 4+ evade moves; next: a better evade instead of less aggression</td></tr>
+<tr class="rej"><td>58</td><td>better evade when no safe way home is left (commit 6d98253, off): <code>evade_mode</code> 1 = move with the largest area we reach before any ghost (home or capsule in it counts big), 2 = farthest from ghosts; wide pool dev20, 400 g each</td><td>vs the pac_delay 99 run: -0.075 (z -1.2) / -0.100 (z -1.6); deaths at evade drop (food lost at death 155 / 160 vs about 180)</td><td>rejected, off: surviving deeper does not bank more</td></tr>
+<tr class="neu"><td>59</td><td>A/A check: pac_delay 99 again on wide dev20 (same code and params as the reference run of steps 57-58)</td><td>-0.075 (se 0.055) vs the reference run (after the replay of step 61); per-game moves: identical against baseline, double defence, greedy, L2 and (36/40) v27, but v26, MDP v4, v42, v37 and tactical UCT v7 answer the same position differently between runs (time-bounded search). Against the mean of both runs steps 57-58 give -0.070 / -0.007 / -0.100 / -0.043 and -0.022 / -0.048 (se about 0.05)</td><td>the reference run was lucky, but no variant of steps 57-58 is positive either: all stay off. Lesson: against time-bounded teams a single reference run adds its own noise to every comparison; compare to the mean of two runs or rerun the reference alongside</td></tr>
+<tr class="neu"><td>60</td><td>cleanup: removed the rejected knobs of steps 54, 57 and 58 (blind, blind_food, pd_depth, pd_carry, pd_chase, pd_mine, evade_mode); pac_delay 99 stays (commit d56ad8b)</td><td>replay of 650 recorded games (holdout, dev40, families) with the cleaned code: all 357,425 of our moves identical; 0 warnings</td><td>done, behaviour unchanged</td></tr>
+<tr class="neu"><td>61</td><td>report final column with pac_delay 99 (confirmation games of step 55 plus the 3 unseen teams); checks: games with crash, timeout or agent time over 200 s; Minimax v3 drop</td><td>22 dev40 games of step 55 had agent times of about 1,000 s from a machine stall (forfeits both ways), replayed; holdout 78% (2.41) vs 77% (2.37) before, dev 74% (2.28) vs 71% (2.20), families 80% (2.47) vs 73% (2.27); final minus previous final +0.057 (se 0.037) on the report games; Minimax v3 cell 75% -&gt; 67%, but 200 fresh games (seeds 2, 3) gave pac_delay 99 minus 0 +0.06 (se 0.10)</td><td>report updated; the Minimax v3 drop is noise. Lesson: check agent times for stalls before trusting a run</td></tr>
+<tr class="neu"><td>62</td><td>re-screen after the invader delay (it changes when attacking pays): bank_cargo 12 / 15, help_cargo 8, idle_help 0, help_two 0, pair_after 10; wide pool dev20, 400 g each, paired vs the mean of two pac_delay 99 runs</td><td>+0.000 / -0.007 / +0.022 / +0.003 / <b>+0.228 (se 0.050, z 4.5)</b> / +0.015; help_two 0 per team: v37 +0.69, v42 +0.50, tactical UCT v7 +0.49, v27 +0.39, v26 +0.31, MDP v4 -0.03, L2 0.00, greedy -0.07; 0 warnings, no stalls</td><td>screen: help_two 0 to confirmation (with two invaders their side has no defender left, so pulling our attacker home throws away the best raid; before the invader delay it was neutral, step 50). The rest stay</td></tr>
+<tr class="neu"><td>63</td><td>confirm help_two 0: wide hold30 (600 g), wide dev40 (dev20 of step 62 + RANDOM11-30, 800 g), 20 families on hold30 (1,200 g), paired vs pac_delay 99</td><td>holdout +0.102 (se 0.048), dev40 +0.169 (se 0.042), pooled <b>+0.140 (se 0.032, z 4.4)</b>; families +0.130 (se 0.036); per team (hold / dev40): v42 +0.57 / +0.29, v27 +0.25 / +0.25, v37 +0.17 / +0.39, tactical UCT v7 +0.12 / +0.14, v26 -0.02 / +0.38, MDP v4 -0.02 / +0.29, baseline, double defence and L2 0, greedy -0.05 / -0.04 (1 loss each, 59/60 and 79/80 wins); families: 13 up, 7 down, staging UCT v21 home -0.33 (se 0.14, 11 non-wins vs 4) the only clear loser; 0 stalls, 0 warnings</td><td><b>kept</b>: help_two 0 default (commit 7238060), then the knob removed (f5f6ca7; replay of 200 games: 0 mismatches). Open: teams that send both agents and out-eat us (staging UCT v21, greedy, double offence on RANDOM5007)</td></tr>
+<tr class="rej"><td>64</td><td>race-aware help against two invaders (uncommitted knobs): the attacker comes home when their food race leads ours by <code>two_race</code> 1 / 4 / 8, or when they need at most <code>two_end</code> 5 / 10 more food; wide dev20 (400 g each) plus staging UCT v21 and double offence on dev20 (80 g each); paired vs a fresh run of the current code (a second fresh run gave +0.028, se 0.038)</td><td>wide: -0.175 (z -3.2) / -0.052 / +0.037 (se 0.034) / -0.048 / -0.033; double invaders: +0.03 / +0.03 / -0.01 / +0.21 (se 0.13) / +0.05; the fresh run of the current code was -0.095 (se 0.033) below the step 62 screen run of help_two 0 (winner&#x27;s curse: the best of 6 screened variants was also the luckiest run, mainly tactical UCT v7 and v42)</td><td>rejected, knobs not committed: calling the attacker home costs more against the hard teams than it saves against the few double-invader teams. Lesson: compare a screen winner against a fresh run, not against its own screen run</td></tr>
+<tr class="neu"><td>65</td><td>loss anatomy of the current final (replay of 640 holdout games vs the hard teams; 2,900 games for the classes)</td><td>non-wins: 228 timeouts behind (we bank 11, they 19; our pacman share 20% vs theirs 45%), 129 race losses, 59 draws, 47 standoff draws (no food banked). In timeout losses: with no invader our attacker stages for about 145 of 213 team moves and eats 1.0 food a game (4.5 in wins); with one invader it stages another 48 moves; they eat 13.2 of their food while both of theirs invade</td><td>the gap is still entering against a home ghost. Next: their raider at home (an enemy that was invading most of the recent moves) is on its way out, not a guard</td></tr>
+<tr class="rej"><td>66</td><td>raider delay (uncommitted knobs): a home ghost that was invading in <code>raid_share</code> of our last <code>raid_window</code> moves gets <code>raid_delay</code> extra threat time; rd 3 / 8 / 99 (share 0.5, window 40), rd 99 share 0.3, rd 8 window 20; wide dev20, 400 g each, paired vs the mean of two fresh runs of the current code</td><td>-0.151 (z -3.1) / -0.124 (z -2.3) / -0.184 (z -3.2) / -0.259 (z -4.1) / -0.091 (z -1.8); rd 99 per team: tactical UCT v7 -0.58, v27 -0.36, MDP v4 -0.30, v37 -0.29, L2 -0.15; simple teams unchanged; 0 warnings</td><td>rejected, knobs not committed: their raider at home does take our attacker; the hard teams&#x27; ghosts guard whatever role they had. The 10-family part did not run (script error) and was not needed</td></tr>
+<tr class="rej"><td>67</td><td>the defender raids too while both enemies invade and carry less than <code>two_raid</code> 1 / 4 / 99 (uncommitted knob; their side is empty then, as in Codex v27 where both agents collect and only the closest home agent defends); wide dev20 (400 g each) vs the mean of two fresh runs, 10 mid families on dev20 (400 g each) vs a fresh run</td><td>wide -0.044 (se 0.050) / -0.134 (z -2.4) / -0.191 (z -3.0); families tw4 -0.128 (z -2.0), tw99 -0.380 (z -5.1); v26 -0.41 / -0.61 / -0.34, v27 -0.11 / -0.24 / -0.51; greedy and L2 lose games at tw99; 0 warnings</td><td>rejected, knob not committed: a guard at home is worth more than a second raider even against two invaders. Steps 64, 66 and 67 all say the current balance of risk and roles is a local optimum for simple rules</td></tr>
+<tr class="neu"><td>68</td><td>re-screen of parameters last tuned before the invader delay and help_two 0: help_near 6 / 20, help_cargo 3, scared_attack 4, shadow_depth 2 / 6, exit_carry_w 3, pair_cargo 5; wide dev20, 400 g each, paired vs the mean of two fresh runs</td><td>+0.056 / -0.046 / -0.129 (z -2.3) / -0.024 / <b>+0.084 (se 0.045, z 1.9)</b> / +0.014 / -0.014 / -0.004; shadow_depth 2 per team: v37 +0.26, tactical UCT v7 +0.23, MDP v4 +0.18, v42 +0.15, v26 +0.04, v27 -0.01, simple teams and L2 0; help_near 6 costs L2 -0.23 (deterministic, so real); 0 warnings</td><td>screen: shadow_depth 2 to confirmation on fresh maps and the families (best of 8, so z 1.9 may be luck); the rest stay</td></tr>
+<tr class="rej"><td>69</td><td>confirm shadow_depth 2 on fresh games: wide hold30 (600 g), wide RANDOM11-30 (400 g), 20 families on hold30 (1,200 g), each vs the mean of a fresh run and the step 63 run of the current code</td><td>holdout -0.022 (se 0.030), RANDOM11-30 +0.039 (se 0.041), pooled +0.003 (se 0.024, z 0.1); families +0.021 (se 0.024); fresh vs step 63 runs of the same code: +0.013 / +0.018 / -0.037 (A/A, all within noise); 0 stalls, 0 warnings</td><td>rejected: the screen gain of step 68 was luck (best of 8). Default 4 stays</td></tr>
+<tr class="neu"><td>70</td><td>opponent model, step 1 of the search direction: (a) recorded games: share of enemy ghost moves that close in on our pacman, by distance: v26, v27, MDP v4, neural v28, cooperative 97-99% at 1-5 steps and over 90% beyond (full interceptors); UCT / MCTS teams (tactical UCT v7 / v9, route UCT v12 / v17, staging UCT v21, UCT horizon) about 50% at 1-5 steps, 75-85% at 6-8. (b) learned chase speed (uncommitted knobs): each enemy ghost&#x27;s share of closing moves within <code>chase_range</code> of our pacmen, prior of a perfect chaser with weight <code>chase_k</code>; a slow chaser gets up to <code>chase_cap</code> extra threat time per step beyond 2 steps. Run at 10 jobs with a fresh reference at the same load; wide dev20 and 10 mid families on dev20, 400 g each</td><td>fresh reference at 10 jobs vs the two 8-job runs -0.034 (se 0.049): the load change is noise. Wide vs the mean of three runs: k2 r8 -0.010, <b>k5 r8 +0.083 (se 0.035, z 2.3)</b>, k5 r5 +0.025, k2 r8 cap 2 +0.030; k5 r8 per team: tactical UCT v7 +0.47, v42 +0.23, v27 0.00, v26 -0.03. Families: k2 r8 -0.033, k5 r8 -0.022 (se 0.054; tactical UCT v9 -0.23, route UCT v17 -0.13, observation MCTS +0.24). Behaviour barely changes (pacman moves +-10 a game): our attacker rarely comes near a ghost, so the model learns from few moves; 0 warnings</td><td>k5 r8 to a confirmation on fresh maps (step 71); the wide gain may be tactical UCT v7 noise</td></tr>
+<tr class="neu"><td>71</td><td>agent frozen at the committed final (commit f5f6ca7 code; step 70 knobs dropped, its confirmation stopped). Round-robin tournament (experiments/tools/tournament.py): 20 teams (ours: final, previous final with help_two 1, v1p, v1a; Codex: v27, v26, v37, v42, MDP v4, tactical UCT v7, neural v28, route UCT v12, minimax v3, tactical UCT v9, hybrid particle v43, Q-learning v28; baseline, L2, double defence, greedy), 6 fixed maps + RANDOM9001-9028 (never used), both colours, 12,920 games at 10 jobs, 6.2 h</td><td>0 runner errors, stalls, crashes, timeouts or time warnings. Standings (points per game): final <b>2.29</b> (74% wins), previous final 2.25, v1p 2.15, v27 1.89, v26 1.88, v1a 1.74, L2 1.72, Q-learning v28 1.60, ...; paired over identical games: final - previous final +0.05 (se 0.03), final - v1p +0.15, final - v1a +0.56, final - v27 +0.34. Random maps: final 2.37 vs v27 1.85; fixed maps: v26 2.18, v27 2.05, final 1.94 (worst distantCapture 1.32, strategicCapture 1.82). Head to head our versions are even (final - previous final 25-16-27)</td><td>final ranks first overall; open weakness: the classic fixed maps (6 maps, 228 games per team), where both A-Star teams are ahead. Page: experiments/tournament.html</td></tr>
+<tr class="neu"><td>72</td><td>analysis of the tournament by map (replay of our final&#x27;s 884 games vs the 13 non-simple outside teams; map features: food per side, border entries, share of enemy food in dead-end pockets, spawn distance)</td><td>fixed maps: we bank 12.4 a game (random 22.3), 2.5 food per entry (6.4), stage 94 moves with no invader (61), food per side 23 (30), 6 entries (12). Worst: distantCapture 1.00 (v26 2.47, v27 1.78), strategicCapture 1.59, RANDOM9028 1.62; in the earlier dev20 games also crowdedCapture 1.40 and officeCapture 1.85, while alley, blox, fast, jumbo, medium are fine (final 2.10 vs v27 1.88 over all 10 fixed maps there). Defence is not the gap: on distant, strategic, blox and default the same opponents bank as much or more against v26 / v27 (strategic 18.0 vs 26.0 / 23.6). Attack volume is: distant 6.8 vs 16.9 / 17.6 banked, strategic 20.6 vs 31.6 / 32.7, pacman moves about half; v26 / v27 die 2-6 times more but bank far more. While staging there is never safe food; 58-71% of the time any one enemy ghost alone makes all enemy food unsafe, although the nearest ghost is more than 10 steps away 64-77% of the time (pocket food needs a round trip longer than the ghost&#x27;s way to the pocket exit). Across the 34 maps our points per game follow food per entry (+0.41 relative to the A-Star teams) and staging time (-0.38), not one map feature</td><td>the weakness is the worst-case escape race on maps with few entries and pocket food; past fixes that add risk for an empty attacker (steps 25, 30, 50) cost points against full-state chasers on random maps, so any fix must be gated and tested on both map types</td></tr>
+<tr class="neu"><td>73</td><td>the two proposals of step 72 (uncommitted knobs). (1) probe: an attacker that staged <code>probe_after</code> moves probes with <code>probe_slack</code> extra moves of escape slack while it carries at most <code>probe_cargo</code>, until it banks or dies; (2) blind (ported from step 54) on top of pac_delay 99: enemies react only once we are within sight 5 of one of them, delay capped at <code>blind</code>, <code>blind_food</code>: a food just eaten gives us away. Wide dev20 (10 fixed + 10 random maps, 400 g each) and 10 mid families on dev20, vs the mean of a fresh run and step 70&#x27;s run; check of the observation code first: only v27 and v37 in our pools read the full state, all others (v26, v42, MDP v4, UCT v7, neural v28, route UCT v12, minimax v3, every family, baseline, L2) see 5 cells and still chase from afar (v26 approaches in 94% of moves)</td><td>fresh vs older reference: fixed -0.105, random +0.120 (se 0.07; noise). Probe 30/2, 30/4, 60/3, 30/3 empty only: all -0.02..+0.00 (fixed -0.03..-0.07, random 0.00..+0.05); families 30/3 -0.090 (fixed -0.152). Probe 30/4 on fixed maps: deaths 0.10 -&gt; 0.98 a game, banked 16.4 -&gt; 17.2. Blind 6 / 10 / 6+food: -0.024 / -0.044 / -0.006 (fixed -0.14 / -0.10 / -0.13, random +0.09 / +0.02 / +0.12); families blind 6 +0.028, blind 10 +0.045 (fixed +0.14, random -0.05); food lost at death up 1.2 -&gt; 3-4 a game on random maps; 0 warnings</td><td>both rejected, knobs not committed: the enemy ghosts catch extra risk on the fixed maps (sight-limited teams track us from eaten food), so more risk buys almost no food. The fixed-map gap stays; the agent stays frozen at the tournament final</td></tr>
+</table></div>
+</main></body></html>

@@ -1,0 +1,56 @@
+{
+  "columns": [
+    "Codex v27",
+    "v1a",
+    "v1p",
+    "v1t",
+    "final"
+  ],
+  "diffs": [
+    [
+      "v1a",
+      "final"
+    ],
+    [
+      "Codex v27",
+      "final"
+    ]
+  ],
+  "tables": {
+    "Holdout: 30 unseen random maps (RANDOM5001-5030), 60 games per opponent": {
+      "Codex v27": "../local-runs/lab/rep/v27/hold.jsonl",
+      "v1a": "../local-runs/lab/rep/v1a/hold.jsonl",
+      "v1p": "../local-runs/lab/rep/v1p/hold.jsonl",
+      "v1t": "../local-runs/lab/rep/v1t/hold.jsonl",
+      "final": "../local-runs/lab/rep/final_ht/hold.jsonl"
+    },
+    "Dev: 10 fixed maps + RANDOM1-10 (used for tuning), 40 games per opponent": {
+      "Codex v27": "../local-runs/lab/rep/v27/dev.jsonl",
+      "v1a": "../local-runs/lab/rep/v1a/dev.jsonl",
+      "v1p": "../local-runs/lab/rep/v1p/dev.jsonl",
+      "v1t": "../local-runs/lab/rep/v1t/dev.jsonl",
+      "final": "../local-runs/lab/rep/final_ht/dev.jsonl"
+    },
+    "Other Codex families: 20 teams never used in tuning (newest version of each family), holdout maps, 60 games per opponent": {
+      "Codex v27": "../local-runs/lab/fam/v27.jsonl",
+      "final": "../local-runs/lab/fam/ht0.jsonl"
+    }
+  },
+  "summary": [
+    "**Where we are.** The final agent (`teams/aljaz2_v1`, commit f5f6ca7) wins 82% of holdout games (2.50 points per game) against all 13 opponents, up from 58% (1.89) for our first version v1a and ahead of Codex's best generalist A-Star v27 at 72% (2.17). On the dev maps it wins 82% (2.49) against 54% (1.74) for v1a and 69% (2.07) for v27. Against 20 other Codex families it wins 85% (2.60) against 77% (2.32) for v27.",
+    "**Paired over identical games** (same opponent, map and colour, holdout + dev): final minus v1a +0.66 PPG (se 0.043), final minus Codex v27 +0.38 (se 0.045), final minus v1t +0.33 (se 0.041), final minus v1p +0.32 (se 0.041). On the 20 other families final minus v27 +0.28 (se 0.042). The last change alone (step 63) is +0.13 (se 0.035) over the previous final on these games; against the three unseen teams it is +0.03 (se 0.10) on the holdout and +0.26 (se 0.15) on the dev maps.",
+    "**What moved the numbers.** Staging near enemy food, capsule saving and the state-based helper role (v1a to v1p: paired +0.34 PPG, se 0.042). From v1t three changes were kept: the race-bank rule, the home-walking fix found on the holdout maps and the paired entry (steps 28-39). Then came the invader delay (step 55): the escape race used to treat every enemy as an interceptor that reacts at once, so the attacker waited on our side for 68% of its attack moves. An enemy that is invading keeps eating instead of turning back, so it no longer counts as a threat on its side; the attacker now waits 42% of the time. Confirmed on the wide pool (dev40 + holdout, 1400 games, paired +0.088, se 0.033) and on the 20 families (+0.20, se 0.040, 16 of 20 better; tactical UCT v9 52% to 80%, hierarchical v21 to 75%, staging UCT v21 to 93%). The last kept change (step 63): with two invaders the attacker no longer comes home to help. Both enemies are then on our side, so theirs is empty and our raid is the best use of the attacker; the helper still comes for invaders that carry 5 or more. Confirmed on the wide pool (1400 games, paired +0.14, se 0.032; v27 +0.25, v37 +0.17 / +0.39) and on the 20 families (+0.13, se 0.036, 13 of 20 better).",
+    "**What did not work.** Waiting for the enemies to see us (sight range 5) helped alone but nothing on top of the invader delay. The invader delay has a cost: about 1 attacker death in 20 games, often carrying 15-20 food, when an invader turns back home in front of our banking attacker. Every fix tried (full threat for invaders near home, carrying, chased, or while we carry 8+; two other ways to evade) lowered deaths but also the points, because the caution costs more food than the deaths do.",
+    "**Weak spots left.** On the holdout maps Route UCT v12, A-Star v26, Neural v28 and Expectimax v37 (72-73%) are the hardest, then A-Star v27 and Tactical UCT v7 (78%); Hybrid v42 rose from 60% to 80%. On the dev maps Neural v28 holds us to 65% and MDP v4 to 70%. Teams that send both agents and eat faster than our single raider gained from step 63: Staging UCT v21 93% to 82% among the families, and greedy food beat us once on the holdout and once on the dev maps (step 64 tests calling the attacker home only when they lead the food race). The 2,500 games of the final column had 0 time warnings, crashes or timeouts."
+  ],
+  "notes": [
+    "Versions: **Codex v27** = Codex A-Star v27 full state (Codex's recommended generalist). **v1a** = our first escape-race team (step 1). **v1p** = v1a plus the kept changes of steps 3-23 (scared attack, helper role, staging near enemy food, capsule saving). **v1t** = v1p plus off-by-default experiment knobs (interception, contact search, capsule defence), so it plays like v1p. **final** = v1t plus the kept changes of steps 28-39 (race-bank rule, home-walking fix, paired entry), then step 40 removed every disabled knob; then the invader delay of step 55 (step 60 removed the rejected risk-model knobs) and no help against two invaders (step 63, knob removed).",
+    "Each column plays the same 13 opponents on the same maps in both colours. Cells: win % (bold) and average points per game (win 3, draw 1, loss 0). Green >= 2.4 PPG, yellow >= 1.8, red below. The difference columns are PPG differences; Codex v27 has no row against itself. Codex v27's All opponents cell covers 12 opponents.",
+    "Acceptance rule for every change: paired dPPG over dev + holdout together above 0 by at least 1.5 standard errors, holdout not worse, simple teams about 100%.",
+    "Repeat runs of the same code gave identical games against the course baseline, double defence, greedy and L2, and nearly so against A-Star v27 (36 of 40). A-Star v26, MDP v4, Hybrid v42, Expectimax v37, Tactical UCT v7, Route UCT v12 and Minimax v3 use time-bounded search and answer the same position differently between runs (checked again on 2026-10-30), so single cells against them move by 10 or more points of win % from noise alone; Neural v28 was not checked.",
+    "Unseen teams (Minimax v3, Neural v28, Route UCT v12) were never used for tuning; they check that changes generalise.",
+    "L2 is a private reference team kept local only; it was used for ideas and testing, no code was copied.",
+    "All games: course Python 3.8.20, tournament limits (`-q -c`: 1 s per move with 3 warnings, 3 s single move, 15 s setup), no output from the agent.",
+    "The final column reuses the confirmation games of step 63 (same code, identical moves on replay) plus new games against the three unseen teams with the committed code (300 games, identical on replay)."
+  ]
+}
