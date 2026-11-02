@@ -1,9 +1,0 @@
-{
-  "schema_version": 1,
-  "teams": ["submission", "baseline"],
-  "layouts": ["defaultCapture", "alleyCapture", "bloxCapture", "crowdedCapture", "distantCapture", "fastCapture", "jumboCapture", "mediumCapture", "officeCapture", "strategicCapture", "RANDOM1", "RANDOM2", "RANDOM3", "RANDOM4", "RANDOM5"],
-  "repeats": 3,
-  "seed": 1,
-  "moves": 1200,
-  "record": false
-}
