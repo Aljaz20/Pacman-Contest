@@ -10,7 +10,8 @@ so it can play against the other teams under one name.
 The agent has three layers. The maze layer precomputes all maze distances and the border. The attacker
 keeps an escape route: for every cell it knows the earliest move an enemy ghost can stand there and the latest
 move it may stand there and still reach home (or a capsule) ahead of every ghost, and it only moves inside
-that limit. The defender shrinks the region an invader can reach and shadows the border when nobody invades.
+that limit. After a long wait at the border (a standoff that would end 0:0), it assumes enemy ghosts react only
+once it comes within their sight, until it is home again with nothing. The defender shrinks the region an invader can reach and shadows the border when nobody invades.
 The team layer assigns the roles from the score, the time left, the invaders and the food carried.
 
 ## Setting up

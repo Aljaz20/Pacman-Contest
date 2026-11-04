@@ -18,6 +18,7 @@ from contest.game import Directions
 from contest.util import nearest_point
 
 INF = 10 ** 6
+SIGHT = 5  # engine sight range (Manhattan)
 LOG = os.environ.get('PACLAB_LOG')
 # Tunable behaviour constants; PACLAB_PARAMS (JSON) overrides them in experiments only.
 PARAMS = dict(
@@ -33,6 +34,8 @@ PARAMS = dict(
     cap_guard=250,               # defender cost when an invader can reach our capsule first
     scared_attack=8,             # a ghost scared for longer than this attacks instead of defending
     pac_delay=99,                # threat delay of enemies that are invading: they keep eating (0 = off)
+    blind=10,                    # in a standoff enemies react only once they can see us, at most this late (0 = off)
+    blind_after=15,              # ... standoff: that agent staged this long, until it is home with no cargo (0 = always)
     shadow_depth=4,              # shadow cells at most this far from the border
     exit_w=10, exit_carry_w=6,   # hunt: cost per step of the invader's lead at its best exit (+ per carried food)
     pair_after=20,               # paired entry: after this many frozen attacker moves the defender stages too (0 = off)
@@ -131,6 +134,8 @@ class Team:
         self.defender = None
         self.last_seen = {}
         self.ply_key = None
+        self.stuck = {}
+        self.standoff = {}
 
     def setup(self, agent, state):
         if self.maze is None:
@@ -202,12 +207,22 @@ class PacLabAgent(CaptureAgent):
 
     # ------------------------------------------------------------ attacker fields
 
-    def threat_field(self, s):
-        """T(x): earliest number of our moves after which a dangerous ghost may occupy x."""
+    def threat_field(self, s, i=None):
+        """T(x): earliest number of our moves after which a dangerous ghost may occupy x (for our agent i)."""
         m = self.maze
         T = {}
+        i = self.index if i is None else i
+        seen_at = 0
+        if PARAMS['blind'] and (not PARAMS['blind_after'] or self.team.standoff.get(i)):
+            # Border standoff: enemies see us only within SIGHT (Manhattan) of either of them, so they cannot
+            # react before we first step into that range. Agents that track us out of sight break this, so it
+            # holds only after a long wait at the border (tested: no loss to such agents then, steps 85-87).
+            me = s['me'] if i == self.index else s['mate_pos']
+            seen = [c for c in m.cells if any(abs(c[0] - e['pos'][0]) + abs(c[1] - e['pos'][1]) <= SIGHT
+                                              for e in s['enemies'].values())]
+            seen_at = min(PARAMS['blind'], min((m.d(me, c) for c in seen), default=0))
         # An invader keeps eating on our side instead of turning back, so it is a late threat at best.
-        sources = [(m.dist[e['pos']], e['scared'], PARAMS['pac_delay'] if e['pac'] else 0)
+        sources = [(m.dist[e['pos']], e['scared'], seen_at + (PARAMS['pac_delay'] if e['pac'] else 0))
                    for e in s['enemies'].values()]
         for c in m.enemy_cells:
             best = INF
@@ -524,7 +539,7 @@ class PacLabAgent(CaptureAgent):
         lead = s['score']
         moves_left = s['moves_left']
         # Attack opportunity of an agent = safe food it can reach right now (state based, so no flapping).
-        T = self.threat_field(s)
+        T = self.threat_field(s, other)
         L = self.latest_field(s, T)
         food = s['food']
 
@@ -594,6 +609,12 @@ class PacLabAgent(CaptureAgent):
     def _choose(self, state):
         s = self.snapshot(state)
         s['our_food_set'] = set(s['our_food'])
+        if PARAMS['blind_after']:
+            # A border standoff holds from a long wait at the border until we are home again with nothing.
+            if self.team.stuck.get(self.index, 0) >= PARAMS['blind_after']:
+                self.team.standoff[self.index] = True
+            elif self.maze.is_home(s['me']) and s['my_state'].num_carrying == 0:
+                self.team.standoff[self.index] = False
         self.current_pos = s['me']
         roles = self.assign_roles(state, s)
         role = roles.get(self.index, 'attack')
@@ -628,6 +649,11 @@ class PacLabAgent(CaptureAgent):
         elif role == 'attack' and not st.is_pacman:
             frozen[self.index] = frozen.get(self.index, 0) + 1
         self.returned_seen = st.num_returned
+        stuck = self.team.stuck
+        if label == 'stage':
+            stuck[self.index] = stuck.get(self.index, 0) + 1
+        elif st.num_carrying > 0 or self.current_pos == self.start:
+            stuck[self.index] = 0
         if action not in state.get_legal_actions(self.index):
             action = Directions.STOP
         if LOG:
