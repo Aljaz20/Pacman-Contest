@@ -11,4 +11,4 @@
 **Team members:**
 
 * U283350 - Aljaž Sovič - aljaz.sovic01@estudiant.upf.edu - Aljaz20
-* _[student number]_ - David Wünsch - _[student email]_ - davidwuensch
+* U283347 - David Wünsch - davidphilipp.wunsch01@estudiant.upf.edu - davidwuensch
