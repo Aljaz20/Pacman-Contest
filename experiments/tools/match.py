@@ -49,7 +49,11 @@ def analyse(game, lay):
     prev = [state.get_agent_state(i).copy() for i in range(4)]
     caps = set(state.get_capsules())
     for step, (idx, action) in enumerate(game.move_history):
-        state = state.generate_successor(idx, action)
+        try:
+            state = state.generate_successor(idx, action)
+        except Exception:   # illegal last move: the engine ended the game as a crash of that agent
+            events.append((step, 'illegal', idx))
+            break
         cur = [state.get_agent_state(i) for i in range(4)]
         new_caps = set(state.get_capsules())
         if len(new_caps) < len(caps):
@@ -102,7 +106,7 @@ def play(red, blue, layout_name, seed):
                 warnings=log.count('took too long'), seconds=round(elapsed, 1),
                 agent_time=[round(t, 2) for t in game.total_agent_times],
                 stats=stats, timeline=timeline, events=events,
-                moves=''.join(f'{i}{CODE[a]}' for i, a in game.move_history))
+                moves=''.join(f'{i}{CODE.get(a, "?")}' for i, a in game.move_history))
 
 
 if __name__ == '__main__':
