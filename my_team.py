@@ -38,7 +38,7 @@ PARAMS = dict(
     blind_after=15,              # ... standoff: that agent staged this long, until it is home with no cargo (0 = always)
     shadow_depth=4,              # shadow cells at most this far from the border
     exit_w=10, exit_carry_w=6,   # hunt: cost per step of the invader's lead at its best exit (+ per carried food)
-    pair_after=20,               # paired entry: after this many frozen attacker moves the defender stages too (0 = off)
+    pair_after=20,               # paired entry: after the attacker has waited this many moves at the border the defender stages too (0 = off)
     pair_cargo=3,                # ... and banks at this cargo
     end_ahead=50,                # last moves: while ahead the attacker defends ...
     end_behind=40,               # ... and while behind both attack
@@ -564,7 +564,7 @@ class PacLabAgent(CaptureAgent):
         # Paired entry: in a border standoff (nobody inside, our attacker frozen) the defender also waits at an
         # entry, so a single enemy ghost cannot cover both of us; it returns on any invader.
         if PARAMS['pair_after'] and not invaders and roles[current] == 'defend' and roles[other] == 'attack' and \
-                team.frozen.get(other, 0) >= PARAMS['pair_after'] and \
+                team.stuck.get(other, 0) >= PARAMS['pair_after'] and \
                 not (moves_left < PARAMS['end_ahead'] and lead > 0):
             roles[current] = 'pair'
         for i in agents:
